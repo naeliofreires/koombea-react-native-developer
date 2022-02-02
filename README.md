@@ -53,5 +53,5 @@ ___
 ## [Screenshots](https://github.com/naeliofreires/koombea-react-native-developer/tree/master/screenshot)
 ___
 
-## [Android APK](https://github.com/naeliofreires/koombea-react-native-developer/tree/master/screenshot)
+## [Android APK](https://drive.google.com/file/d/1V09zsQoXL_3mpHV323Kqpe8xGFrlqicV/view?usp=sharing)
   
