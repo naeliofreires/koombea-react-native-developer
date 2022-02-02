@@ -49,4 +49,9 @@ $ cd ios/ && pod install && cd ..
 ```shell 
 $ yarn ios
 ```
+___
+## [Screenshots](https://github.com/naeliofreires/koombea-react-native-developer/tree/master/screenshot)
+___
+
+## [Android APK](https://github.com/naeliofreires/koombea-react-native-developer/tree/master/screenshot)
   
