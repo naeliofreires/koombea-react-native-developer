@@ -1,19 +1,19 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {ScrollView} from 'react-native';
+import {Platform, ScrollView} from 'react-native';
 import {observer} from 'mobx-react-lite';
 import {Rating} from 'react-native-ratings';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
+import {useStore} from '~/store/hooks';
 import {Text} from '~/components/commons/Text';
 import {Header} from '~/components/commons/Header';
-import {FighterStoreProps, FilterOptions} from '~/store/Fighter/types';
 import {BaseButton} from '~/components/commons/BaseButton';
 import {InputRadio} from '~/components/commons/InputRadio';
+import {FighterStoreProps, FilterOptions} from '~/store/Fighter/types';
 
 import * as S from './styles';
 import {FilterProps} from './types';
-import {useStore} from '~/store/hooks';
 
 export const Filter = observer(({onClose}: FilterProps) => {
   const palette = useTheme().palette;
@@ -81,7 +81,11 @@ export const Filter = observer(({onClose}: FilterProps) => {
               <MaterialIcon
                 size={26}
                 name={'keyboard-backspace'}
-                color={palette.primaryText}
+                color={
+                  Platform.OS === 'ios'
+                    ? palette.quartenaryText
+                    : palette.primaryText
+                }
               />
             </BaseButton>
           </S.BackButtonView>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
@@ -30,7 +31,11 @@ export const Details = ({route, navigation}: DetailsProps) => {
               <MaterialIcon
                 size={26}
                 name={'keyboard-backspace'}
-                color={palette.primaryText}
+                color={
+                  Platform.OS === 'ios'
+                    ? palette.quartenaryText
+                    : palette.primaryText
+                }
               />
             </BaseButton>
           </S.BackButtonView>
