@@ -28,9 +28,13 @@ export const FightersList = observer(() => {
   const handleFilterFightersList = useCallback(async () => {
     try {
       const universeID = universesStore?.universeSelectedID;
-      const universe = await universesStore?.getUniverseByID(universeID);
 
-      await fightersStore?.loadByUniverse(universe?.name);
+      if (universeID === 0) {
+        await fightersStore?.loadAll();
+      } else {
+        const universe = await universesStore?.getUniverseByID(universeID);
+        await fightersStore?.loadByUniverse(universe.name);
+      }
     } catch (e) {
       Alert.alert('Universe App', e as string);
     }

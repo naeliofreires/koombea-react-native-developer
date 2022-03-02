@@ -13,9 +13,9 @@ export interface FighterStoreProps extends StoreBase {
   fighters: FighterProps[];
   options: FilterOptions;
 
-  loadByUniverse(name?: string): void;
+  loadByUniverse(name?: string): Promise<void>;
   loadAll(universe?: string, options?: FilterOptions): Promise<void>;
 
   setOptions(options: FilterOptions): Promise<void>;
-  getOne(name: string, universe: string): Promise<FighterProps | undefined>;
+  getOne(name: string, universe: string): Promise<FighterProps>;
 }

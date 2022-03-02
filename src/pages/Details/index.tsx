@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+import React, {useEffect, useMemo, useState} from 'react';
+import {Alert, Platform} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
@@ -18,36 +18,38 @@ type Fighter = FighterProps;
 
 export const Details = ({route, navigation}: DetailsProps) => {
   const {name, universe} = route.params;
-  const [fighter, setFighter] = useState<Fighter>();
 
   const palette = useTheme().palette;
+  const [fighter, setFighter] = useState<Fighter>();
   const store = useStore('fighter') as FighterStoreProps;
 
   useEffect(() => {
-    store.getOne(name, universe).then(response => {
-      if (response !== undefined) {
-        setFighter(response);
-      }
-    });
+    try {
+      store.getOne(name, universe).then(setFighter);
+    } catch (error) {
+      Alert.alert('Universe App', error as string);
+    }
   }, [name, store, universe]);
+
+  const color = useMemo(
+    () =>
+      Platform.OS === 'ios' ? palette.quartenaryText : palette.primaryText,
+    [], // eslint-disable-line
+  );
 
   return (
     <S.Container>
       {!!fighter && (
         <>
           <Header
-            title={fighter?.name || 'Details'}
+            title={fighter.name || 'Details'}
             leftChild={
               <S.BackButtonView>
                 <BaseButton onPress={navigation.goBack}>
                   <MaterialIcon
                     size={26}
+                    color={color}
                     name={'keyboard-backspace'}
-                    color={
-                      Platform.OS === 'ios'
-                        ? palette.quartenaryText
-                        : palette.primaryText
-                    }
                   />
                 </BaseButton>
               </S.BackButtonView>
@@ -55,19 +57,19 @@ export const Details = ({route, navigation}: DetailsProps) => {
           />
 
           <Card
-            rate={fighter?.rate || 0}
-            name={fighter?.name || ''}
-            price={fighter?.price || ''}
-            universe={fighter?.universe || ''}
-            imageURL={fighter?.imageURL || ''}
-            downloads={fighter?.downloads || '-'}
+            rate={fighter.rate || 0}
+            name={fighter.name || ''}
+            price={fighter.price || ''}
+            universe={fighter.universe || ''}
+            imageURL={fighter.imageURL || ''}
+            downloads={fighter.downloads || '-'}
           />
 
           <S.DescriptionBox>
             <Text
               color={'tertiaryText'}
               typography={'descriptionFront'}
-              value={fighter?.description || ''}
+              value={fighter.description || ''}
             />
           </S.DescriptionBox>
         </>

@@ -34,18 +34,19 @@ export class FighterStore {
     makeAutoObservable(this);
   }
 
-  async getOne(
-    name: string,
-    universe: string,
-  ): Promise<FighterProps | undefined> {
-    try {
-      const check = (item: FighterProps) =>
-        item.name === name && item.universe === universe;
+  async getOne(name: string, universe: string): Promise<FighterProps> {
+    const check = (item: FighterProps) =>
+      item.name === name && item.universe === universe;
 
-      return this.fighters.filter(check)[0];
-    } catch (e) {
-      console.error(`An error at getById: ${e}`);
-    }
+    return new Promise((resolve, reject) => {
+      const [data] = this.fighters.filter(check);
+
+      if (data) {
+        resolve(data);
+      }
+
+      reject('Not found');
+    });
   }
 
   async setOptions(options: FilterOptions): Promise<void> {
@@ -61,33 +62,30 @@ export class FighterStore {
       await api
         .get(`fighters?universe=${universe}`)
         .then(({data}) => {
-          let response = data;
+          let response = data as FighterProps[];
 
-          /**
-           * Options to filter
-           */
           const key = this.options?.sortBy;
           const rate = this.options?.filterBy;
 
           if (rate) {
-            response = (response as FighterProps[]).filter(
+            response = response.filter(
               item => Number(rate) >= Number(item.rate),
             );
           }
 
           switch (key) {
             case 'name':
-              response = (response as FighterProps[]).sort((a, b) =>
+              response = response.sort((a, b) =>
                 SortUtil.compareStrings(a.name, b.name),
               );
               break;
             case 'price':
-              response = (response as FighterProps[]).sort((a, b) =>
+              response = response.sort((a, b) =>
                 SortUtil.compareNumbers(Number(a.price), Number(b.price)),
               );
               break;
             case 'downloads':
-              response = (response as FighterProps[]).sort((a, b) =>
+              response = response.sort((a, b) =>
                 SortUtil.compareNumbers(
                   Number(a.downloads),
                   Number(b.downloads),
@@ -95,7 +93,7 @@ export class FighterStore {
               );
               break;
             case 'rate':
-              response = (response as FighterProps[]).sort((a, b) =>
+              response = response.sort((a, b) =>
                 SortUtil.compareNumbers(
                   Number(a.downloads),
                   Number(b.downloads),
@@ -113,19 +111,18 @@ export class FighterStore {
             this.fighters = data;
             this.state = STATE.SUCCESS;
           });
-        })
-        .catch(() => {
-          runInAction(() => {
-            this.fighters = [];
-            this.state = STATE.ERROR;
-          });
         });
     } catch (e) {
-      console.log(`An error at getAllFighters: ${e}`);
+      console.log(`an error getting all fighters func: ${e}`);
+
+      runInAction(() => {
+        this.fighters = [];
+        this.state = STATE.ERROR;
+      });
     }
   }
 
-  async loadByUniverse(universe: string) {
-    await this.loadAll(universe);
+  async loadByUniverse(name?: string): Promise<void> {
+    await this.loadAll(name);
   }
 }
