@@ -30,16 +30,20 @@ export class UniverseStore {
     makeAutoObservable(this);
   }
 
-  getUniverseByID(id: number | string): UniverseProps | undefined {
-    try {
-      if (id) {
-        return this.universes.filter(
-          item => item.objectID === id,
-        )[0] as UniverseProps;
+  async getUniverseByID(id: number | string): Promise<UniverseProps> {
+    return new Promise((resolve, reject) => {
+      try {
+        const [universe] = this.universes.filter(item => item.objectID === id);
+
+        if (universe !== undefined) {
+          resolve(universe);
+        } else {
+          reject('Universe not found');
+        }
+      } catch (e) {
+        reject(e);
       }
-    } catch (e) {
-      console.error(`An error at ${e}`);
-    }
+    });
   }
 
   onSelectUniverseID(id: number | string) {
@@ -56,22 +60,19 @@ export class UniverseStore {
     try {
       this.state = STATE.PENDING;
 
-      await api
-        .get('universes')
-        .then(({data}) => {
-          runInAction(() => {
-            this.universes = data;
-            this.state = STATE.SUCCESS;
-          });
-        })
-        .catch(() => {
-          runInAction(() => {
-            this.universes = [];
-            this.state = STATE.ERROR;
-          });
+      await api.get('universes').then(({data}) => {
+        runInAction(() => {
+          this.universes = data;
+          this.state = STATE.SUCCESS;
         });
+      });
     } catch (e) {
-      console.log(`An error at getAllUniverses: ${e}`);
+      runInAction(() => {
+        this.universes = [];
+        this.state = STATE.ERROR;
+      });
+
+      console.error(`An error at getAllUniverses: ${e}`);
     }
   }
 }

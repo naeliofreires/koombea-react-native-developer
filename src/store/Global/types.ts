@@ -6,5 +6,5 @@ export enum WARNS_TYPES {
 
 export interface GlobalStoreProps extends StoreBase {
   warns: string[];
-  setWarn(value: WARNS_TYPES): void;
+  setWarn(value: WARNS_TYPES): Promise<void>;
 }

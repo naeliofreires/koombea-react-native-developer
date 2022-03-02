@@ -57,19 +57,17 @@ export const Filter = observer(({onClose}: FilterProps) => {
     });
   }, []);
 
-  const onApply = useCallback(() => {
-    fighterStore.setOptions(options);
+  const onApply = useCallback(async () => {
+    await fighterStore.setOptions(options);
 
-    setTimeout(() => {
-      onClose();
-    }, 250);
+    onClose();
   }, [fighterStore, onClose, options]);
 
-  const onReset = useCallback(() => {
+  const onReset = useCallback(async () => {
     const emptyOptions = {filterBy: null, sortBy: null};
 
     setOptions(emptyOptions);
-    fighterStore.setOptions(emptyOptions);
+    await fighterStore.setOptions(emptyOptions);
   }, [fighterStore]);
 
   return (

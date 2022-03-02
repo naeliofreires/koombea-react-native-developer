@@ -55,11 +55,15 @@ export const Onboarding = observer(({onClose}: OnboardingProps) => {
     );
   }, []);
 
-  const onCloseOnboarding = () => {
-    globalStore?.setWarn(WARNS_TYPES.ONBOARDING);
+  const onCloseOnboarding = useCallback(async () => {
+    try {
+      await globalStore?.setWarn(WARNS_TYPES.ONBOARDING);
+    } catch (e) {
+      throw new Error('an error occurred in global.setWarn func');
+    }
 
     onClose();
-  };
+  }, [globalStore, onClose]);
 
   const onNextButton = useMemo(
     () => state.activeSlide === data.length - 1,

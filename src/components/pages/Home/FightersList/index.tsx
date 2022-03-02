@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useMemo} from 'react';
 import {observer} from 'mobx-react-lite';
 import FastImage from 'react-native-fast-image';
-import {FlatList, RefreshControl} from 'react-native';
+import {Alert, FlatList, RefreshControl} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -18,15 +18,22 @@ import NoSearchResult from '~/assets/icons/feedback/no_search_result.png';
 
 import * as S from './style';
 
+type FighterStore = FighterStoreProps;
+type UniverseStore = UniverseStoreProps;
 export const FightersList = observer(() => {
   const palette = useTheme().palette;
-  const fightersStore = useStore('fighter') as FighterStoreProps;
-  const universesStore = useStore('universe') as UniverseStoreProps;
+  const fightersStore = useStore('fighter') as FighterStore;
+  const universesStore = useStore('universe') as UniverseStore;
 
-  const handleFilterFightersList = useCallback(() => {
-    const universeID = universesStore?.universeSelectedID;
-    const universe = universesStore?.getUniverseByID(universeID);
-    fightersStore?.loadByUniverse(universe?.name);
+  const handleFilterFightersList = useCallback(async () => {
+    try {
+      const universeID = universesStore?.universeSelectedID;
+      const universe = await universesStore?.getUniverseByID(universeID);
+
+      await fightersStore?.loadByUniverse(universe?.name);
+    } catch (e) {
+      Alert.alert('Universe App', e as string);
+    }
   }, [fightersStore, universesStore?.universeSelectedID]); // eslint-disable-line
 
   useEffect(() => {
@@ -36,7 +43,9 @@ export const FightersList = observer(() => {
   }, [fightersStore]);
 
   useEffect(() => {
-    handleFilterFightersList();
+    (async () => {
+      await handleFilterFightersList();
+    })();
   }, [
     handleFilterFightersList,
     universesStore?.universeSelectedID,

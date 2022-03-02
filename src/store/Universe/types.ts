@@ -7,5 +7,5 @@ export interface UniverseStoreProps extends StoreBase {
 
   getAllUniverses(): Promise<void>;
   onSelectUniverseID(id: number | string): void;
-  getUniverseByID(id: number | string): UniverseProps | undefined;
+  getUniverseByID(id: number | string): Promise<UniverseProps>;
 }

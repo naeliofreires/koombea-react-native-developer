@@ -34,7 +34,10 @@ export class FighterStore {
     makeAutoObservable(this);
   }
 
-  getOne(name: string, universe: string): FighterProps | undefined {
+  async getOne(
+    name: string,
+    universe: string,
+  ): Promise<FighterProps | undefined> {
     try {
       const check = (item: FighterProps) =>
         item.name === name && item.universe === universe;
@@ -45,7 +48,7 @@ export class FighterStore {
     }
   }
 
-  setOptions(options: FilterOptions) {
+  async setOptions(options: FilterOptions): Promise<void> {
     runInAction(() => {
       this.options = options;
     });

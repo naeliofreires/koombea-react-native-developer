@@ -22,7 +22,7 @@ export class GlobalStore {
     makeAutoObservable(this);
   }
 
-  setWarn(value: WARNS_TYPES) {
+  async setWarn(value: WARNS_TYPES): Promise<void> {
     if (value) {
       runInAction(() => {
         this.warns.push(value);
