@@ -1,11 +1,11 @@
 import {StoreBase} from '~/store/types';
-import {UniverseProps} from '~/components/commons/Universe/types';
+import {UniverseType} from '~/components/commons/Universe/types';
 
 export interface UniverseStoreProps extends StoreBase {
-  universes: UniverseProps[];
+  universes: UniverseType[];
   universeSelectedID: string | number;
 
   getAllUniverses(): Promise<void>;
   onSelectUniverseID(id: number | string): void;
-  getUniverseByID(id: number | string): Promise<UniverseProps>;
+  getUniverseByID(id: number | string): Promise<UniverseType>;
 }

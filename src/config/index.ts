@@ -7,6 +7,6 @@ export default {
   /**
    * API
    */
-  TIMEOUT: 1000,
+  TIMEOUT: 2000,
   BASE_URL: 'https://593cdf8fb56f410011e7e7a9.mockapi.io',
 };

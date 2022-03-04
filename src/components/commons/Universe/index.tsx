@@ -1,35 +1,39 @@
 import React, {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
 import {observer} from 'mobx-react-lite';
 
-import {useStore} from '~/store/hooks';
 import {Text} from '~/components/commons/Text';
-import {UniverseStoreProps} from '~/store/Universe/types';
+import {useResource} from '~/redux/store/hooks';
+import {UniverseActions} from '~/redux/store/slices/universe';
 
 import * as S from './styles';
-import {UniverseProps} from './types';
+import {UniverseType} from './types';
 
-export const Universe = observer(({name, objectID}: UniverseProps) => {
-  const store = useStore<UniverseStoreProps>('universe');
+export const Universe = observer(
+  ({name, objectID, description}: UniverseType) => {
+    const dispatch = useDispatch();
+    const {selectedUniverse} = useResource('universe');
 
-  const onSelectUniverseID = useCallback(() => {
-    try {
-      if (objectID) {
-        store?.onSelectUniverseID(objectID);
-      } else if (objectID === 0) {
-        if (store.universeSelectedID !== 0) {
-          store?.onSelectUniverseID(0);
+    const onSelectUniverseID = useCallback(() => {
+      try {
+        if (objectID) {
+          dispatch(UniverseActions.onSelect({name, objectID, description}));
+        } else if (objectID === 0) {
+          if (selectedUniverse?.objectID !== 0) {
+            dispatch(UniverseActions.onSelect({objectID: 0} as UniverseType));
+          }
         }
+      } catch (e) {
+        throw new Error(`An error at Universe.onSelectUniverseID: ${e}`);
       }
-    } catch (e) {
-      throw new Error(`An error at Universe.onSelectUniverseID: ${e}`);
-    }
-  }, [objectID, store.universeSelectedID]); // eslint-disable-line
+    }, [description, dispatch, name, objectID, selectedUniverse?.objectID]);
 
-  return (
-    <S.Container
-      onPress={onSelectUniverseID}
-      selected={Boolean(store.universeSelectedID === objectID)}>
-      <Text value={name} color={'primaryText'} typography={'secondaryFont'} />
-    </S.Container>
-  );
-});
+    return (
+      <S.Container
+        onPress={onSelectUniverseID}
+        selected={selectedUniverse?.objectID === objectID}>
+        <Text value={name} color={'primaryText'} typography={'secondaryFont'} />
+      </S.Container>
+    );
+  },
+);

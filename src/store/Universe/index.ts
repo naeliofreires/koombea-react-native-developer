@@ -3,14 +3,14 @@ import {makeAutoObservable, runInAction} from 'mobx';
 import {api} from '~/api';
 import {STATE} from '~/store/types';
 import {UniverseStoreProps} from '~/store/Universe/types';
-import {UniverseProps} from '~/components/commons/Universe/types';
+import {UniverseType} from '~/components/commons/Universe/types';
 
 export const UniverseStoreKey = 'universe';
 export class UniverseStore {
   name: string;
   state: STATE;
   universeSelectedID: string | number = 0;
-  universes = [] as UniverseProps[];
+  universes = [] as UniverseType[];
 
   constructor(restoredStore: UniverseStoreProps | null) {
     this.name = UniverseStoreKey;
@@ -30,7 +30,7 @@ export class UniverseStore {
     makeAutoObservable(this);
   }
 
-  async getUniverseByID(id: number | string): Promise<UniverseProps> {
+  async getUniverseByID(id: number | string): Promise<UniverseType> {
     return new Promise((resolve, reject) => {
       try {
         const [universe] = this.universes.filter(item => item.objectID === id);

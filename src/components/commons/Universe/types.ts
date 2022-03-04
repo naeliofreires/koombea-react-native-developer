@@ -1,5 +1,5 @@
-export type UniverseProps = {
-  objectID: string | number;
+export type UniverseType = {
   name: string;
   description: string;
+  objectID: string | number;
 };

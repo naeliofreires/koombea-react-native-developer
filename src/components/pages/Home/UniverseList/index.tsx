@@ -1,33 +1,38 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {observer} from 'mobx-react-lite';
 
-import {useStore} from '~/store/hooks';
+import {useDispatch} from 'react-redux';
+import {STATUS} from '~/redux/store/types';
 import {Text} from '~/components/commons/Text';
+import {useResource} from '~/redux/store/hooks';
 import {Universe} from '~/components/commons/Universe';
-import {UniverseStoreProps} from '~/store/Universe/types';
 import {BaseButton} from '~/components/commons/BaseButton';
+import {getAllUniverses} from '~/redux/store/slices/universe/services';
 
 import * as S from './style';
-import {STATE} from '~/store/types';
 
 export const UniverseList = observer(() => {
-  const store = useStore('universe') as UniverseStoreProps;
+  const dispatch = useDispatch();
+  const {data, status} = useResource('universe');
 
   useEffect(() => {
-    (async () => {
-      await store?.getAllUniverses();
-    })();
-  }, [store]);
+    dispatch(getAllUniverses());
+  }, [dispatch]);
 
-  const onTryToLoad = useCallback(async () => {
-    await store?.getAllUniverses();
-  }, [store]);
+  const reload = useCallback(() => {
+    dispatch(getAllUniverses());
+  }, [dispatch]);
+
+  const renderUniverses = useMemo(
+    () => data.map(u => <Universe key={u.objectID} {...u} />),
+    [data],
+  );
 
   return (
     <>
-      {store?.state === STATE.ERROR && (
+      {status === STATUS.ERROR && (
         <S.FeedbackErrorBox>
-          <BaseButton onPress={onTryToLoad}>
+          <BaseButton onPress={reload}>
             <Text
               color={'tertiaryText'}
               typography={'tertiaryFont'}
@@ -42,13 +47,10 @@ export const UniverseList = observer(() => {
         </S.FeedbackErrorBox>
       )}
 
-      {store?.state === STATE.SUCCESS && (
+      {status === STATUS.SUCCESS && (
         <S.ScrollContainer>
           <Universe objectID={0} name={'All'} description={'default'} />
-
-          {store?.universes?.map(universe => (
-            <Universe key={universe.objectID} {...universe} />
-          ))}
+          {renderUniverses}
         </S.ScrollContainer>
       )}
     </>

@@ -10,11 +10,11 @@ import {Header} from '~/components/commons/Header';
 import {Card} from '~/components/pages/Details/Card';
 import {FighterStoreProps} from '~/store/Fighter/types';
 import {BaseButton} from '~/components/commons/BaseButton';
-import {FighterProps} from '~/components/commons/Fighter/types';
+import {FighterType} from '~/components/commons/Fighter/types';
 
 import * as S from './styles';
 
-type Fighter = FighterProps;
+type Fighter = FighterType;
 
 export const Details = ({route, navigation}: DetailsProps) => {
   const {name, universe} = route.params;

@@ -3,14 +3,14 @@ import {makeAutoObservable, runInAction} from 'mobx';
 import {api} from '~/api';
 import {STATE} from '~/store/types';
 import {FighterStoreProps, FilterOptions} from '~/store/Fighter/types';
-import {FighterProps} from '~/components/commons/Fighter/types';
+import {FighterType} from '~/components/commons/Fighter/types';
 import {SortUtil} from '~/utils/SortUtil';
 
 export const FighterStoreKey = 'fighter';
 export class FighterStore {
   name: string;
   state: STATE;
-  fighters: FighterProps[];
+  fighters: FighterType[];
   options = {} as FilterOptions;
 
   constructor(restoredStore: FighterStoreProps | null) {
@@ -34,8 +34,8 @@ export class FighterStore {
     makeAutoObservable(this);
   }
 
-  async getOne(name: string, universe: string): Promise<FighterProps> {
-    const check = (item: FighterProps) =>
+  async getOne(name: string, universe: string): Promise<FighterType> {
+    const check = (item: FighterType) =>
       item.name === name && item.universe === universe;
 
     return new Promise((resolve, reject) => {
@@ -62,7 +62,7 @@ export class FighterStore {
       await api
         .get(`fighters?universe=${universe}`)
         .then(({data}) => {
-          let response = data as FighterProps[];
+          let response = data as FighterType[];
 
           const key = this.options?.sortBy;
           const rate = this.options?.filterBy;

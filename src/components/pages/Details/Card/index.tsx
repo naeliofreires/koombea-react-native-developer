@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {Rating} from 'react-native-ratings';
 
 import {Text} from '~/components/commons/Text';
-import {FighterProps} from '~/components/commons/Fighter/types';
+import {FighterType} from '~/components/commons/Fighter/types';
 
 import * as S from './styles';
 
@@ -16,7 +16,7 @@ export const Card = React.memo(
     downloads,
     rate,
   }: Pick<
-    FighterProps,
+    FighterType,
     'name' | 'universe' | 'imageURL' | 'price' | 'downloads' | 'rate'
   >) => {
     return (

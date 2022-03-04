@@ -1,21 +1,21 @@
 import React, {useCallback, useEffect, useRef} from 'react';
+import {Platform} from 'react-native';
 import {observer} from 'mobx-react-lite';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
+import {useStore} from '~/store/hooks';
 import {Filter} from '~/pages/Filter';
 import {Modal} from '~/components/commons/Modal';
 import {Header} from '~/components/commons/Header';
 import {BaseButton} from '~/components/commons/BaseButton';
-import {UniverseList} from '~/components/pages/Home/UniverseList';
+import {Onboarding} from '~/components/pages/Home/Onboarding';
 import {ModalRefProps} from '~/components/commons/Modal/types';
+import {UniverseList} from '~/components/pages/Home/UniverseList';
 import {FightersList} from '~/components/pages/Home/FightersList';
+import {GlobalStoreProps, WARNS_TYPES} from '~/store/Global/types';
 
 import * as S from './styles';
-import {Onboarding} from '~/components/pages/Home/Onboarding';
-import {useStore} from '~/store/hooks';
-import {GlobalStoreProps, WARNS_TYPES} from '~/store/Global/types';
-import {Platform} from 'react-native';
 
 export const Home = observer(() => {
   const palette = useTheme().palette;
@@ -38,10 +38,11 @@ export const Home = observer(() => {
   }, [onboardingModalRef]);
 
   useEffect(() => {
-    if (
+    const first =
       globalStore?.warns !== undefined &&
-      !globalStore?.warns.includes(WARNS_TYPES.ONBOARDING)
-    ) {
+      !globalStore?.warns.includes(WARNS_TYPES.ONBOARDING);
+
+    if (first) {
       onboardingModalRef.current?.open();
     }
   }, [globalStore?.warns]);

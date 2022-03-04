@@ -4,11 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 import {PAGES} from '~/routes/types';
 import {Text} from '~/components/commons/Text';
 
-import {FighterProps} from './types';
+import {FighterType} from './types';
 import * as S from './styles';
 
 export const Fighter = React.memo(
-  ({name, price, imageURL, rate, downloads, universe}: FighterProps) => {
+  ({name, price, imageURL, rate, downloads, universe}: FighterType) => {
     const navigation = useNavigation();
 
     const onNavigation = useCallback(() => {
