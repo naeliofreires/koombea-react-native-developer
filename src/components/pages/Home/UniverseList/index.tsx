@@ -7,7 +7,7 @@ import {Text} from '~/components/commons/Text';
 import {useResource} from '~/redux/store/hooks';
 import {Universe} from '~/components/commons/Universe';
 import {BaseButton} from '~/components/commons/BaseButton';
-import {getAllUniverses} from '~/redux/store/slices/universe/services';
+import {UniverseService} from '~/redux/store/slices/universe/services';
 
 import * as S from './style';
 
@@ -16,11 +16,11 @@ export const UniverseList = observer(() => {
   const {data, status} = useResource('universe');
 
   useEffect(() => {
-    dispatch(getAllUniverses());
+    dispatch(UniverseService.getAll());
   }, [dispatch]);
 
   const reload = useCallback(() => {
-    dispatch(getAllUniverses());
+    dispatch(UniverseService.getAll());
   }, [dispatch]);
 
   const renderUniverses = useMemo(

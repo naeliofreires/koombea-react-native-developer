@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-
 import {STATUS} from '~/redux/store/types';
 import {UniverseState} from '~/redux/store/slices/universe/types';
-import {getAllUniverses} from '~/redux/store/slices/universe/services';
 import {UniverseType} from '~/components/commons/Universe/types';
+
+import {UniverseService} from './services';
 
 const initialState: UniverseState = {
   status: STATUS.NONE,
@@ -20,7 +20,11 @@ export const UniverseSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(getAllUniverses.fulfilled, (state, action) => {
+    builder.addCase(UniverseService.getAll.pending, (state, action) => {
+      state.status = action.meta.requestStatus as STATUS;
+    });
+
+    builder.addCase(UniverseService.getAll.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = action.meta.requestStatus as STATUS;
     });

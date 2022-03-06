@@ -1,15 +1,14 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {Alert, Platform} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
-import {useStore} from '~/store/hooks';
 import {DetailsProps} from '~/routes/types';
 import {Text} from '~/components/commons/Text';
 import {Header} from '~/components/commons/Header';
 import {Card} from '~/components/pages/Details/Card';
-import {FighterStoreProps} from '~/store/Fighter/types';
 import {BaseButton} from '~/components/commons/BaseButton';
+import {useResource} from '~/redux/store/hooks';
 import {FighterType} from '~/components/commons/Fighter/types';
 
 import * as S from './styles';
@@ -18,23 +17,36 @@ type Fighter = FighterType;
 
 export const Details = ({route, navigation}: DetailsProps) => {
   const {name, universe} = route.params;
-
   const palette = useTheme().palette;
+  const {data} = useResource('fighter');
   const [fighter, setFighter] = useState<Fighter>();
-  const store = useStore('fighter') as FighterStoreProps;
+
+  const getOne = useCallback(
+    (list: Fighter[]) =>
+      new Promise((resolve, reject) => {
+        const item = list.find(i => i.name === name && i.universe === universe);
+
+        if (item) {
+          resolve(item);
+        }
+
+        reject('Fighter Not Found!');
+      }) as Promise<Fighter>,
+    [name, universe],
+  );
 
   useEffect(() => {
     try {
-      store.getOne(name, universe).then(setFighter);
+      getOne(data).then(setFighter);
     } catch (error) {
       Alert.alert('Universe App', error as string);
     }
-  }, [name, store, universe]);
+  }, [data, getOne]);
 
   const color = useMemo(
     () =>
       Platform.OS === 'ios' ? palette.quartenaryText : palette.primaryText,
-    [], // eslint-disable-line
+    [palette.primaryText, palette.quartenaryText],
   );
 
   return (
@@ -58,18 +70,18 @@ export const Details = ({route, navigation}: DetailsProps) => {
 
           <Card
             rate={fighter.rate || 0}
-            name={fighter.name || ''}
-            price={fighter.price || ''}
-            universe={fighter.universe || ''}
-            imageURL={fighter.imageURL || ''}
-            downloads={fighter.downloads || '-'}
+            name={fighter.name}
+            price={fighter.price}
+            universe={fighter.universe}
+            imageURL={fighter.imageURL}
+            downloads={fighter.downloads}
           />
 
           <S.DescriptionBox>
             <Text
               color={'tertiaryText'}
+              value={fighter.description}
               typography={'descriptionFront'}
-              value={fighter.description || ''}
             />
           </S.DescriptionBox>
         </>

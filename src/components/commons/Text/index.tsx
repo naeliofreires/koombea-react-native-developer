@@ -21,7 +21,7 @@ export const Text: React.FC<TextProps> = ({
   const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primaryFont;
 
   const _color = useMemo(
-    () => (palette as Record<string, string>)[color],
+    () => (palette as Record<string, string>)[color as string],
     [color, palette],
   );
 
@@ -38,7 +38,7 @@ export const Text: React.FC<TextProps> = ({
   );
 
   return (
-    <ReactNativeText style={{..._styles}} {...rest}>
+    <ReactNativeText style={{...(_styles as any)}} {...rest}>
       {value}
       {React.isValidElement(children) && children}
     </ReactNativeText>

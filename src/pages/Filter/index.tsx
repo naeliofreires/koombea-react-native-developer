@@ -1,49 +1,29 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {Platform, ScrollView} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {observer} from 'mobx-react-lite';
 import {Rating} from 'react-native-ratings';
+import {Platform, ScrollView} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
-import {useStore} from '~/store/hooks';
 import {Text} from '~/components/commons/Text';
+import {useResource} from '~/redux/store/hooks';
 import {Header} from '~/components/commons/Header';
+import {FilterActions} from '~/redux/store/slices/filter';
 import {BaseButton} from '~/components/commons/BaseButton';
 import {InputRadio} from '~/components/commons/InputRadio';
-import {FighterStoreProps, FilterOptions} from '~/store/Fighter/types';
+import {FilterOptions} from '~/redux/store/slices/filter/types';
 
 import * as S from './styles';
 import {FilterProps} from './types';
+import sortedOptions from './options';
 
 export const Filter = observer(({onClose}: FilterProps) => {
+  const dispatch = useDispatch();
   const palette = useTheme().palette;
-  const fighterStore = useStore<FighterStoreProps>('fighter');
+  const filter = useResource('filter');
 
-  const [options, setOptions] = useState({
-    ...fighterStore?.options,
-  } as FilterOptions);
-
-  const sortOptions = useMemo(
-    () => [
-      {
-        name: 'Name',
-        value: 'name',
-      },
-      {
-        name: 'Price',
-        value: 'price',
-      },
-      {
-        name: 'Rate',
-        value: 'rate',
-      },
-      {
-        name: 'Downloads',
-        value: 'downloads',
-      },
-    ],
-    [],
-  );
+  const [options, setOptions] = useState({...filter.options});
 
   const onChangeInputRadio = useCallback((text: string) => {
     setOptions((prevState: FilterOptions) => {
@@ -57,22 +37,23 @@ export const Filter = observer(({onClose}: FilterProps) => {
     });
   }, []);
 
-  const onApply = useCallback(async () => {
-    await fighterStore.setOptions(options);
+  const onApply = useCallback(() => {
+    dispatch(FilterActions.set(options));
 
     onClose();
-  }, [fighterStore, onClose, options]);
+  }, [dispatch, onClose, options]);
 
   const onReset = useCallback(async () => {
-    const emptyOptions = {filterBy: null, sortBy: null};
+    const resetedOptions = {filterBy: null, sortBy: null};
 
-    setOptions(emptyOptions);
-    await fighterStore.setOptions(emptyOptions);
-  }, [fighterStore]);
+    setOptions(resetedOptions);
+    dispatch(FilterActions.set(resetedOptions));
+  }, [dispatch]);
 
   return (
     <S.Container>
       <Header
+        title="Filters"
         leftChild={
           <S.BackButtonView>
             <BaseButton onPress={onClose}>
@@ -88,7 +69,6 @@ export const Filter = observer(({onClose}: FilterProps) => {
             </BaseButton>
           </S.BackButtonView>
         }
-        title="Filters"
       />
 
       <ScrollView>
@@ -99,13 +79,13 @@ export const Filter = observer(({onClose}: FilterProps) => {
             typography={'tertiaryFont'}
           />
 
-          {sortOptions.map((item, idx) => (
+          {sortedOptions.map((item, idx) => (
             <InputRadio
               key={item.value}
               title={item.name}
               value={item.value}
               onChange={onChangeInputRadio}
-              last={Boolean(sortOptions.length - 1 === idx)}
+              last={Boolean(sortedOptions.length - 1 === idx)}
               selected={Boolean(options.sortBy === item.value)}
             />
           ))}

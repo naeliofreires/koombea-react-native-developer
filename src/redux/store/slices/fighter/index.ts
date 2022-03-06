@@ -13,7 +13,7 @@ export const FighterSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(FighterService.load.fulfilled, (state, action) => {
+    builder.addCase(FighterService.getAll.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = action.meta.requestStatus as STATUS;
     });

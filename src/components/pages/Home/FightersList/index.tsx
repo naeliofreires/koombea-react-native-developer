@@ -22,42 +22,39 @@ export const FightersList = observer(() => {
   const palette = useTheme().palette;
 
   const dispatch = useDispatch();
+  const {options} = useResource('filter');
   const {data, status} = useResource('fighter');
-  const {selectedUniverse} = useResource('universe');
+  const {selectedUniverse: universe} = useResource('universe');
 
   const handleFilterFightersList = useCallback(() => {
     try {
-      if (selectedUniverse) {
-        const {objectID} = selectedUniverse;
+      if (universe) {
+        const {objectID} = universe;
 
         if (objectID === 0) {
-          dispatch(FighterService.load());
+          dispatch(FighterService.getAll());
         } else {
-          dispatch(FighterService.getByUniverse(selectedUniverse));
+          dispatch(FighterService.getByUniverse({universe, options}));
         }
       }
     } catch (e) {
       Alert.alert('Universe App', e as string);
     }
-  }, [selectedUniverse, dispatch]);
+  }, [universe, dispatch, options]);
 
   useEffect(() => {
-    dispatch(FighterService.load());
+    dispatch(FighterService.getAll());
   }, [dispatch]);
 
   useEffect(
     () => handleFilterFightersList(),
-    [
-      handleFilterFightersList,
-      selectedUniverse,
-      // fightersStore?.options,
-    ],
+    [handleFilterFightersList, universe, options],
   );
 
   const renderItem = useCallback(({item}) => <Fighter {...item} />, []);
 
   const reload = useCallback(() => {
-    dispatch(FighterService.load());
+    dispatch(FighterService.getAll());
   }, [dispatch]);
 
   return (
@@ -86,9 +83,8 @@ export const FightersList = observer(() => {
 
       {status === STATUS.SUCCESS && data?.length === 0 && (
         <S.FeedbackView>
-          <FastImage
+          <S.Image
             source={NoSearchResult}
-            style={{width: 200, height: 200}}
             resizeMode={FastImage.resizeMode.contain}
           />
         </S.FeedbackView>

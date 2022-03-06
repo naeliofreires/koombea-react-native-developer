@@ -1,5 +1,6 @@
 import {UniverseState} from '~/redux/store/slices/universe/types';
 import {FighterState} from '~/redux/store/slices/fighter/types';
+import {FilterState} from '~/redux/store/slices/filter/types';
 
 export enum STATUS {
   NONE = 'none',
@@ -11,4 +12,5 @@ export enum STATUS {
 export interface ReduxState {
   universe: UniverseState;
   fighter: FighterState;
+  filter: FilterState;
 }

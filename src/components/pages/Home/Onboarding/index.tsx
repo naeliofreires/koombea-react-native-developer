@@ -8,7 +8,7 @@ import {Text} from '~/components/commons/Text';
 import {OnboardingButton} from '~/components/commons/OnboardingButton';
 import {GlobalStoreProps, WARNS_TYPES} from '~/store/Global/types';
 
-import data from './data';
+import steps from './steps';
 import * as S from './styles';
 import {OnboardingProps, OnboardingStep} from './types';
 
@@ -22,7 +22,7 @@ export const Onboarding = observer(({onClose}: OnboardingProps) => {
     const {activeSlide} = state;
     return (
       <Pagination
-        dotsLength={data.length}
+        dotsLength={steps.length}
         activeDotIndex={activeSlide}
         inactiveDotScale={1}
         inactiveDotOpacity={1}
@@ -66,14 +66,14 @@ export const Onboarding = observer(({onClose}: OnboardingProps) => {
   }, [globalStore, onClose]);
 
   const onNextButton = useMemo(
-    () => state.activeSlide === data.length - 1,
+    () => state.activeSlide === steps.length - 1,
     [state.activeSlide],
   );
 
   return (
     <S.Container>
       <Carousel
-        data={data}
+        data={steps}
         itemWidth={width}
         sliderWidth={width}
         renderItem={renderItem}

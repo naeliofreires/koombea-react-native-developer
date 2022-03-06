@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import FastImage from 'react-native-fast-image';
+
 import {styled} from '~/theme';
 
 export const Styles = StyleSheet.create({
@@ -19,4 +21,9 @@ export const FeedbackView = styled.View`
 
 export const GhostBox = styled.View`
   padding: ${p => p.theme.units.base}px;
+`;
+
+export const Image = styled(FastImage)`
+  width: 200px;
+  height: 200px;
 `;
