@@ -1,21 +1,21 @@
 import React, {useCallback, useMemo, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {observer} from 'mobx-react-lite';
 import {useWindowDimensions} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
-import {useStore} from '~/store/hooks';
 import {Text} from '~/components/commons/Text';
+import {WARNS} from '~/redux/store/slices/global/types';
+import {GlobalActions} from '~/redux/store/slices/global';
 import {OnboardingButton} from '~/components/commons/OnboardingButton';
-import {GlobalStoreProps, WARNS_TYPES} from '~/store/Global/types';
 
 import steps from './steps';
 import * as S from './styles';
 import {OnboardingProps, OnboardingStep} from './types';
 
 export const Onboarding = observer(({onClose}: OnboardingProps) => {
+  const disptach = useDispatch();
   const {width} = useWindowDimensions();
-  const globalStore = useStore<GlobalStoreProps>('global');
-
   const [state, setState] = useState({activeSlide: 0});
 
   const pagination = useCallback(() => {
@@ -57,13 +57,13 @@ export const Onboarding = observer(({onClose}: OnboardingProps) => {
 
   const onCloseOnboarding = useCallback(async () => {
     try {
-      await globalStore?.setWarn(WARNS_TYPES.ONBOARDING);
+      disptach(GlobalActions.set(WARNS.ONBOARDING));
     } catch (e) {
       throw new Error('an error occurred in global.setWarn func');
     }
 
     onClose();
-  }, [globalStore, onClose]);
+  }, [disptach, onClose]);
 
   const onNextButton = useMemo(
     () => state.activeSlide === steps.length - 1,

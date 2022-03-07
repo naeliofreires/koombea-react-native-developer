@@ -4,7 +4,6 @@ import {observer} from 'mobx-react-lite';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
-import {useStore} from '~/store/hooks';
 import {Filter} from '~/pages/Filter';
 import {Modal} from '~/components/commons/Modal';
 import {Header} from '~/components/commons/Header';
@@ -13,14 +12,15 @@ import {Onboarding} from '~/components/pages/Home/Onboarding';
 import {ModalRefProps} from '~/components/commons/Modal/types';
 import {UniverseList} from '~/components/pages/Home/UniverseList';
 import {FightersList} from '~/components/pages/Home/FightersList';
-import {GlobalStoreProps, WARNS_TYPES} from '~/store/Global/types';
+import {useResource} from '~/redux/store/hooks';
+import {WARNS} from '~/redux/store/slices/global/types';
 
 import * as S from './styles';
 
 export const Home = observer(() => {
   const palette = useTheme().palette;
 
-  const globalStore = useStore<GlobalStoreProps>('global');
+  const global = useResource('global');
 
   const filterModalRef = useRef<ModalRefProps>(null);
   const onboardingModalRef = useRef<ModalRefProps>(null);
@@ -38,14 +38,12 @@ export const Home = observer(() => {
   }, [onboardingModalRef]);
 
   useEffect(() => {
-    const first =
-      globalStore?.warns !== undefined &&
-      !globalStore?.warns.includes(WARNS_TYPES.ONBOARDING);
+    const exist = global.warns[WARNS.ONBOARDING];
 
-    if (first) {
+    if (!exist) {
       onboardingModalRef.current?.open();
     }
-  }, [globalStore?.warns]);
+  }, [global.warns]);
 
   return (
     <S.Container>

@@ -14,18 +14,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UniverseSlice} from '~/redux/store/slices/universe';
 import {FighterSlice} from './slices/fighter';
 import {FilterSlice} from './slices/filter';
+import {GlobalSlice} from './slices/global';
 
 const rootReducer = combineReducers({
   universe: UniverseSlice.reducer,
   fighter: FighterSlice.reducer,
   filter: FilterSlice.reducer,
+  global: GlobalSlice.reducer,
 });
 
 const persistConfig = {
   key: 'root',
   debug: true,
   storage: AsyncStorage,
-  whitelist: ['universe', 'fighter', 'filter'],
+  whitelist: ['global', 'universe', 'fighter', 'filter'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

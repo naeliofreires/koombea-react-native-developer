@@ -29,13 +29,7 @@ export const FightersList = observer(() => {
   const handleFilterFightersList = useCallback(() => {
     try {
       if (universe) {
-        const {objectID} = universe;
-
-        if (objectID === 0) {
-          dispatch(FighterService.getAll());
-        } else {
-          dispatch(FighterService.getByUniverse({universe, options}));
-        }
+        dispatch(FighterService.getByUniverse({universe, options}));
       }
     } catch (e) {
       Alert.alert('Universe App', e as string);
