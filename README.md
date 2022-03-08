@@ -1,4 +1,4 @@
-# Koombea | React Native Developer
+# Universe | React Native App
 
 This application was built using React Native Framework.
 
