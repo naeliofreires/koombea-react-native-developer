@@ -1,10 +1,9 @@
 import React, {useCallback, useEffect} from 'react';
-import {observer} from 'mobx-react-lite';
 import {useDispatch} from 'react-redux';
 import FastImage from 'react-native-fast-image';
-import {Alert, FlatList, RefreshControl} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {Alert, FlatList, RefreshControl} from 'react-native';
 
 import {useTheme} from '~/theme';
 import {STATUS} from '~/redux/store/types';
@@ -18,7 +17,7 @@ import NoSearchResult from '~/assets/icons/feedback/no_search_result.png';
 
 import * as S from './style';
 
-export const FightersList = observer(() => {
+export const FightersList = React.memo(() => {
   const palette = useTheme().palette;
 
   const dispatch = useDispatch();

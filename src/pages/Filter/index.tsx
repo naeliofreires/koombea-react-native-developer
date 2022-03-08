@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {observer} from 'mobx-react-lite';
 import {Rating} from 'react-native-ratings';
 import {Platform, ScrollView} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -18,7 +17,7 @@ import * as S from './styles';
 import {FilterProps} from './types';
 import sortedOptions from './options';
 
-export const Filter = observer(({onClose}: FilterProps) => {
+export const Filter = ({onClose}: FilterProps) => {
   const dispatch = useDispatch();
   const palette = useTheme().palette;
   const filter = useResource('filter');
@@ -131,4 +130,4 @@ export const Filter = observer(({onClose}: FilterProps) => {
       </S.ActionsView>
     </S.Container>
   );
-});
+};

@@ -1,5 +1,4 @@
 import React from 'react';
-import {observer} from 'mobx-react-lite';
 
 import {Text} from '~/components/commons/Text';
 import {BaseButton} from '~/components/commons/BaseButton';
@@ -7,7 +6,7 @@ import {BaseButton} from '~/components/commons/BaseButton';
 import * as S from './styles';
 import {OnboardingButtonProps} from './types';
 
-export const OnboardingButtonIOS = observer(
+export const OnboardingButtonIOS = React.memo(
   ({onClose}: OnboardingButtonProps) => {
     return (
       <S.GoButtonViewIOS>

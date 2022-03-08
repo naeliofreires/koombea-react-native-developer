@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect, useRef} from 'react';
 import {Platform} from 'react-native';
-import {observer} from 'mobx-react-lite';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
@@ -17,7 +16,7 @@ import {WARNS} from '~/redux/store/slices/global/types';
 
 import * as S from './styles';
 
-export const Home = observer(() => {
+export const Home = () => {
   const palette = useTheme().palette;
 
   const global = useResource('global');
@@ -77,4 +76,4 @@ export const Home = observer(() => {
       </Modal>
     </S.Container>
   );
-});
+};

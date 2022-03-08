@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useMemo} from 'react';
-import {observer} from 'mobx-react-lite';
-
 import {useDispatch} from 'react-redux';
+
 import {STATUS} from '~/redux/store/types';
 import {Text} from '~/components/commons/Text';
 import {useResource} from '~/redux/store/hooks';
@@ -11,17 +10,17 @@ import {UniverseService} from '~/redux/store/slices/universe/services';
 
 import * as S from './style';
 
-export const UniverseList = observer(() => {
+export const UniverseList = React.memo(() => {
   const dispatch = useDispatch();
   const {data, status} = useResource('universe');
 
-  useEffect(() => {
+  const load = useCallback(() => {
     dispatch(UniverseService.getAll());
   }, [dispatch]);
 
-  const reload = useCallback(() => {
-    dispatch(UniverseService.getAll());
-  }, [dispatch]);
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const renderUniverses = useMemo(
     () => data.map(u => <Universe key={u.objectID} {...u} />),
@@ -32,7 +31,7 @@ export const UniverseList = observer(() => {
     <>
       {status === STATUS.ERROR && (
         <S.FeedbackErrorBox>
-          <BaseButton onPress={reload}>
+          <BaseButton onPress={load}>
             <Text
               color={'tertiaryText'}
               typography={'tertiaryFont'}

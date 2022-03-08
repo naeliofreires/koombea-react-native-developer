@@ -5,19 +5,20 @@ import {useTheme} from '~/theme';
 import {TextProps} from '~/components/commons/Text/types';
 import {TEXT_STYLES} from '~/components/commons/Text/styles';
 
-export const Text: React.FC<TextProps> = ({
-  typography,
-  color,
-  value,
-  transform,
-  fontSize,
-  styles,
-  alignment = 'auto',
-  children,
-  ...rest
-}) => {
-  const palette = useTheme().palette;
+export const Text: React.FC<TextProps> = React.memo(props => {
+  const {
+    color,
+    value,
+    styles,
+    fontSize,
+    children,
+    transform,
+    typography,
+    alignment = 'auto',
+    ...rest
+  } = props;
 
+  const palette = useTheme().palette;
   const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primaryFont;
 
   const _color = useMemo(
@@ -43,4 +44,4 @@ export const Text: React.FC<TextProps> = ({
       {React.isValidElement(children) && children}
     </ReactNativeText>
   );
-};
+});

@@ -1,6 +1,5 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {observer} from 'mobx-react-lite';
 import {useWindowDimensions} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
@@ -13,8 +12,8 @@ import steps from './steps';
 import * as S from './styles';
 import {OnboardingProps, OnboardingStep} from './types';
 
-export const Onboarding = observer(({onClose}: OnboardingProps) => {
-  const disptach = useDispatch();
+export const Onboarding = React.memo(({onClose}: OnboardingProps) => {
+  const dispatch = useDispatch();
   const {width} = useWindowDimensions();
   const [state, setState] = useState({activeSlide: 0});
 
@@ -57,13 +56,13 @@ export const Onboarding = observer(({onClose}: OnboardingProps) => {
 
   const onCloseOnboarding = useCallback(async () => {
     try {
-      disptach(GlobalActions.set(WARNS.ONBOARDING));
+      dispatch(GlobalActions.set(WARNS.ONBOARDING));
     } catch (e) {
       throw new Error('an error occurred in global.setWarn func');
     }
 
     onClose();
-  }, [disptach, onClose]);
+  }, [dispatch, onClose]);
 
   const onNextButton = useMemo(
     () => state.activeSlide === steps.length - 1,

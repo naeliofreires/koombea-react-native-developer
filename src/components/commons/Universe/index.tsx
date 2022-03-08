@@ -1,6 +1,5 @@
 import React, {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
-import {observer} from 'mobx-react-lite';
 
 import {Text} from '~/components/commons/Text';
 import {useResource} from '~/redux/store/hooks';
@@ -9,7 +8,7 @@ import {UniverseActions} from '~/redux/store/slices/universe';
 import * as S from './styles';
 import {UniverseType} from './types';
 
-export const Universe = observer(
+export const Universe = React.memo(
   ({name, objectID, description}: UniverseType) => {
     const dispatch = useDispatch();
     const {selectedUniverse} = useResource('universe');
