@@ -7,7 +7,7 @@ import {Filter} from '~/pages/Filter';
 import {Modal} from '~/components/commons/Modal';
 import {Header} from '~/components/commons/Header';
 import {BaseButton} from '~/components/commons/BaseButton';
-import {Onboarding} from '~/components/pages/Home/Onboarding';
+import {Onboarding} from '~/pages/Onboarding';
 import {ModalRefProps} from '~/components/commons/Modal/types';
 import {UniverseList} from '~/components/pages/Home/UniverseList';
 import {FightersList} from '~/components/pages/Home/FightersList';

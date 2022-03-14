@@ -19,4 +19,9 @@ export default interface ThemeInterface {
     base: number;
     double: number;
   };
+
+  platform: {
+    ios: boolean;
+    android: boolean;
+  };
 }

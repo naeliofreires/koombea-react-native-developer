@@ -14,7 +14,7 @@ export const OnboardingButtonAndroid = React.memo(
     return (
       <S.GoButton>
         <BaseButton onPress={onClose}>
-          <Ant name={'arrowright'} color={palette.primaryColor} size={22} />
+          <Ant name={'arrowright'} color={palette.primaryColor} size={18} />
         </BaseButton>
       </S.GoButton>
     );

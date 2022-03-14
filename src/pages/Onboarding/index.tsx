@@ -3,10 +3,10 @@ import {useDispatch} from 'react-redux';
 import {useWindowDimensions} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
-import {Text} from '~/components/commons/Text';
 import {WARNS} from '~/redux/store/slices/global/types';
 import {GlobalActions} from '~/redux/store/slices/global';
-import {OnboardingButton} from '~/components/commons/OnboardingButton';
+import {OnboardingImage} from '~/components/pages/Onboarding/OnboardingImage';
+import {OnboardingButton} from '~/components/pages/Onboarding/OnboardingButton';
 
 import steps from './steps';
 import * as S from './styles';
@@ -20,45 +20,35 @@ export const Onboarding = React.memo(({onClose}: OnboardingProps) => {
   const pagination = useCallback(() => {
     const {activeSlide} = state;
     return (
-      <Pagination
-        dotsLength={steps.length}
-        activeDotIndex={activeSlide}
-        inactiveDotScale={1}
-        inactiveDotOpacity={1}
-        dotStyle={S.Styles.dots}
-        inactiveDotStyle={S.Styles.inactiveDot}
-      />
+      <S.PaginationView>
+        <Pagination
+          dotsLength={steps.length}
+          activeDotIndex={activeSlide}
+          inactiveDotScale={1}
+          inactiveDotOpacity={1}
+          dotStyle={S.PaginatonStyles.dots}
+          inactiveDotStyle={S.PaginatonStyles.inactiveDot}
+        />
+      </S.PaginationView>
     );
   }, [state]);
 
-  const renderItem = useCallback(({item}: {item: OnboardingStep}) => {
-    return (
-      <>
-        <S.ImageView>
-          <S.Img
-            source={item.img}
-            resizeMethod={'resize'}
-            resizeMode={'contain'}
-          />
-        </S.ImageView>
-
-        <S.TextView>
-          <Text
-            value={item.text}
-            alignment={'center'}
-            color={'primaryText'}
-            typography={'primaryFont'}
-          />
-        </S.TextView>
-      </>
-    );
-  }, []);
+  const renderItem = useCallback(
+    ({item}: {item: OnboardingStep}) => {
+      return (
+        <OnboardingImage source={item.img} text={item.text}>
+          {pagination()}
+        </OnboardingImage>
+      );
+    },
+    [pagination],
+  );
 
   const onCloseOnboarding = useCallback(async () => {
     try {
       dispatch(GlobalActions.set(WARNS.ONBOARDING));
     } catch (e) {
-      throw new Error('an error occurred in global.setWarn func');
+      throw new Error(`An error occurred in global.setWarn func: ${e}`);
     }
 
     onClose();
@@ -80,8 +70,6 @@ export const Onboarding = React.memo(({onClose}: OnboardingProps) => {
       />
 
       {onNextButton && <OnboardingButton onClose={onCloseOnboarding} />}
-
-      {pagination()}
     </S.Container>
   );
 });

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {STATUS} from '~/redux/store/types';
@@ -22,11 +22,6 @@ export const UniverseList = React.memo(() => {
     load();
   }, [load]);
 
-  const renderUniverses = useMemo(
-    () => data.map(u => <Universe key={u.objectID} {...u} />),
-    [data],
-  );
-
   return (
     <>
       {status === STATUS.ERROR && (
@@ -49,7 +44,9 @@ export const UniverseList = React.memo(() => {
       {status === STATUS.SUCCESS && (
         <S.ScrollContainer>
           <Universe objectID={0} name={'All'} description={'default'} />
-          {renderUniverses}
+          {data.map(u => (
+            <Universe key={u.objectID} {...u} />
+          ))}
         </S.ScrollContainer>
       )}
     </>
