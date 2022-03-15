@@ -42,10 +42,4 @@ export const Universe = React.memo(
       </S.Container>
     );
   },
-  (prevProps, nextProps) => {
-    /**
-     * to avoid extra renders, the component will just render again if the selected flag change
-     */
-    return prevProps.selected === nextProps.selected;
-  },
 );

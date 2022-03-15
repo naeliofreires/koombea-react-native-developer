@@ -53,9 +53,9 @@ export const UniverseList = React.memo(() => {
           />
           {data.map(u => (
             <Universe
+              {...u}
               key={u.objectID}
               selected={selectedUniverse?.objectID === u.objectID}
-              {...u}
             />
           ))}
         </S.ScrollContainer>
