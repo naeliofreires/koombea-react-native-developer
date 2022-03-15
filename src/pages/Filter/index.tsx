@@ -115,7 +115,7 @@ export const Filter = ({onClose}: FilterProps) => {
             fontSize={20}
             value={'Reset'}
             color={'secondaryText'}
-            typography={'primaryFont'}
+            typography={'primary'}
           />
         </S.ButtonView>
 
@@ -124,7 +124,7 @@ export const Filter = ({onClose}: FilterProps) => {
             fontSize={20}
             value={'Apply'}
             color={'secondaryText'}
-            typography={'primaryFont'}
+            typography={'primary'}
           />
         </S.ButtonView>
       </S.ActionsView>

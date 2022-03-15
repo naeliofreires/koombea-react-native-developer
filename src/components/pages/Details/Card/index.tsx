@@ -20,10 +20,10 @@ export const Card = React.memo((props: Props) => {
       <S.CardView>
         <View>
           <Text
-            fontSize={40}
+            fontSize={24}
             numberOfLines={1}
             color={'secondaryText'}
-            typography={'primaryFont'}
+            typography={'primary'}
             value={name}
           />
           <Text
@@ -54,7 +54,7 @@ export const Card = React.memo((props: Props) => {
             fontSize={22}
             value={`$${price}`}
             color={'primaryText'}
-            typography={'primaryFont'}
+            typography={'primary'}
           />
         </S.PriceView>
       </S.CardView>

@@ -59,7 +59,7 @@ export const FightersList = React.memo(() => {
             <Text
               alignment={'center'}
               value={'Try again'}
-              typography={'primaryFont'}
+              typography={'primary'}
               color={palette.tertiaryColor}>
               <>
                 <S.GhostBox />

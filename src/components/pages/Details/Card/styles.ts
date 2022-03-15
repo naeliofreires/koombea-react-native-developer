@@ -14,16 +14,15 @@ export const Card = styled.View`
 `;
 
 export const CardView = styled.View<{align?: 'flex-start' | 'flex-end'}>`
-  overflow: hidden;
   flex: 1;
-  justify-content: space-around;
+  overflow: hidden;
   align-items: ${p => p.align ?? 'flex-start'};
 `;
 
 export const DownloadsView = styled.View`
+  padding-top: 23px;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: ${p => p.theme.units.base}px 0;
 `;
 
 export const PriceView = styled.View`
@@ -31,9 +30,9 @@ export const PriceView = styled.View`
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  padding: ${p => p.theme.units.base}px;
-  padding: ${p => p.theme.units.half}px;
   background-color: ${p => p.theme.palette.primaryColor};
 
-  margin-bottom: ${p => p.theme.units.double}px;
+  margin-top: 23px;
+  margin-bottom: 34px;
+  padding: 6px ${p => p.theme.units.base}px 6px ${p => p.theme.units.base - 3}px;
 `;

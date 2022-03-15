@@ -81,7 +81,7 @@ export const Details = ({route, navigation}: DetailsProps) => {
             <Text
               color={'tertiaryText'}
               value={fighter.description}
-              typography={'descriptionFront'}
+              typography={'description'}
             />
           </S.DescriptionBox>
         </>

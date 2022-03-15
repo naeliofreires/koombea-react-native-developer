@@ -15,7 +15,7 @@ export const HeaderAndroid = React.memo(
     return (
       <S.Container justifyContent={justifyContent}>
         {React.isValidElement(leftChild) && leftChild}
-        <Text value={title} color={'primaryText'} typography={'primaryFont'} />
+        <Text value={title} color={'primaryText'} typography={'primary'} />
         {React.isValidElement(rightChild) && rightChild}
       </S.Container>
     );

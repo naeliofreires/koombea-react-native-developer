@@ -15,6 +15,7 @@ export const HeaderIOS = React.memo(
     justifyContent = 'flex-start',
   }: HeaderProps) => {
     const palette = useTheme().palette;
+
     return (
       <S.ContainerIOS
         activeBorder
@@ -26,12 +27,7 @@ export const HeaderIOS = React.memo(
           <View>{React.isValidElement(rightChild) && rightChild}</View>
         </S.ChildView>
 
-        <Text
-          value={title}
-          fontSize={26}
-          color={'secondaryText'}
-          typography={'primaryFont'}
-        />
+        <Text value={title} typography={'primary'} color={'secondaryText'} />
       </S.ContainerIOS>
     );
   },

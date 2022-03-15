@@ -19,7 +19,7 @@ export const InputRadio = React.memo(
         <Text
           value={title || ''}
           color={'quartenaryText'}
-          typography={'primaryFont'}
+          typography={'primary'}
         />
       </S.Container>
     );

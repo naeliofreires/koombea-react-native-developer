@@ -1,19 +1,20 @@
 import {StyleSheet, TextStyle} from 'react-native';
 
 export type FONTS =
-  | 'primaryFont'
-  | 'secondaryFont'
+  | 'primary'
+  | 'secondary'
   | 'tertiaryFont'
   | 'quartenaryFont'
   | 'onboarding'
-  | 'descriptionFront'
-  | 'cardTitle'
-  | 'secondary';
+  | 'description'
+  | 'cardTitle';
 
 export const TEXT_STYLES = StyleSheet.create({
-  primaryFont: {
-    fontSize: 20,
-    fontFamily: 'Roboto',
+  primary: {
+    fontSize: 34,
+    lineHeight: 41,
+    fontWeight: '700',
+    fontFamily: 'Roboto-Regular',
   },
   secondary: {
     fontFamily: 'Roboto-Regular',
@@ -30,11 +31,11 @@ export const TEXT_STYLES = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Roboto',
   },
-  descriptionFront: {
+  description: {
     fontSize: 14,
     lineHeight: 27,
     fontWeight: '400',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Regular',
   },
   onboarding: {
     fontSize: 25,

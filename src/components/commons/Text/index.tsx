@@ -19,7 +19,7 @@ export const Text: React.FC<TextProps> = React.memo(props => {
   } = props;
 
   const palette = useTheme().palette;
-  const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primaryFont;
+  const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primary;
 
   const _color = useMemo(
     () => (palette as Record<string, string>)[color as string],

@@ -14,7 +14,7 @@ export const OnboardingButtonIOS = React.memo(
           <Text
             value={"Let's Go"}
             color={'primaryColor'}
-            typography={'primaryFont'}
+            typography={'primary'}
           />
         </BaseButton>
       </S.GoButtonViewIOS>
