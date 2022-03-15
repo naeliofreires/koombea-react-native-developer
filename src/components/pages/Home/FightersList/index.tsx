@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import FastImage from 'react-native-fast-image';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Alert, FlatList, RefreshControl} from 'react-native';
@@ -74,14 +73,7 @@ export const FightersList = React.memo(() => {
         </S.FeedbackView>
       )}
 
-      {status === STATUS.SUCCESS && data?.length === 0 && (
-        <S.FeedbackView>
-          <S.Image
-            source={NoSearchResult}
-            resizeMode={FastImage.resizeMode.contain}
-          />
-        </S.FeedbackView>
-      )}
+      {status === STATUS.SUCCESS && data?.length === 0 && <NoSearchResult />}
 
       <FlatList<FighterType>
         data={data}

@@ -12,10 +12,6 @@ export const Universe = React.memo(
     const dispatch = useDispatch();
 
     const onSelectUniverseID = useCallback(() => {
-      if (!objectID) {
-        return;
-      }
-
       try {
         dispatch(
           UniverseActions.onSelect({

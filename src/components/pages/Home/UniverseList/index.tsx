@@ -12,7 +12,6 @@ import * as S from './style';
 
 export const UniverseList = React.memo(() => {
   const dispatch = useDispatch();
-
   const {data, status, selectedUniverse} = useResource('universe');
 
   const load = useCallback(() => {

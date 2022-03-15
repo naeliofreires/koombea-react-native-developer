@@ -20,6 +20,10 @@ export const UniverseSlice = createSlice({
     },
   },
   extraReducers: builder => {
+    builder.addCase(UniverseService.getAll.rejected, (state, action) => {
+      state.status = action.meta.requestStatus as STATUS;
+    });
+
     builder.addCase(UniverseService.getAll.pending, (state, action) => {
       state.status = action.meta.requestStatus as STATUS;
     });
