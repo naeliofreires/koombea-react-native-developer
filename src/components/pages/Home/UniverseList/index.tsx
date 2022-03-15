@@ -12,7 +12,8 @@ import * as S from './style';
 
 export const UniverseList = React.memo(() => {
   const dispatch = useDispatch();
-  const {data, status} = useResource('universe');
+
+  const {data, status, selectedUniverse} = useResource('universe');
 
   const load = useCallback(() => {
     dispatch(UniverseService.getAll());
@@ -43,9 +44,19 @@ export const UniverseList = React.memo(() => {
 
       {status === STATUS.SUCCESS && (
         <S.ScrollContainer>
-          <Universe first objectID={0} name={'All'} description={'default'} />
+          <Universe
+            first
+            objectID={0}
+            name={'All'}
+            description={'default'}
+            selected={selectedUniverse?.objectID === 0}
+          />
           {data.map(u => (
-            <Universe key={u.objectID} {...u} />
+            <Universe
+              key={u.objectID}
+              selected={selectedUniverse?.objectID === u.objectID}
+              {...u}
+            />
           ))}
         </S.ScrollContainer>
       )}

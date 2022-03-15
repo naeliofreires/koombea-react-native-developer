@@ -2,38 +2,50 @@ import React, {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {Text} from '~/components/commons/Text';
-import {useResource} from '~/redux/store/hooks';
 import {UniverseActions} from '~/redux/store/slices/universe';
 
 import * as S from './styles';
-import {UniverseType} from './types';
+import {UniverseProps, UniverseType} from './types';
 
 export const Universe = React.memo(
-  ({name, objectID, description, first}: UniverseType) => {
+  ({name, objectID, description, first, selected}: UniverseProps) => {
     const dispatch = useDispatch();
-    const {selectedUniverse} = useResource('universe');
 
     const onSelectUniverseID = useCallback(() => {
+      if (!objectID) {
+        return;
+      }
+
       try {
-        if (objectID) {
-          dispatch(UniverseActions.onSelect({name, objectID, description}));
-        } else if (objectID === 0) {
-          if (selectedUniverse?.objectID !== 0) {
-            dispatch(UniverseActions.onSelect({objectID} as UniverseType));
-          }
+        dispatch(
+          UniverseActions.onSelect({
+            name,
+            objectID,
+            description,
+          }),
+        );
+
+        if (objectID === 0) {
+          dispatch(UniverseActions.onSelect({objectID} as UniverseType));
         }
       } catch (e) {
         throw new Error(`An error at Universe.onSelectUniverseID: ${e}`);
       }
-    }, [description, dispatch, name, objectID, selectedUniverse?.objectID]);
+    }, [description, dispatch, name, objectID]);
 
     return (
       <S.Container
         first={Boolean(first)}
-        onPress={onSelectUniverseID}
-        selected={selectedUniverse?.objectID === objectID}>
+        selected={selected}
+        onPress={onSelectUniverseID}>
         <Text value={name} color={'primaryText'} typography={'secondary'} />
       </S.Container>
     );
+  },
+  (prevProps, nextProps) => {
+    /**
+     * to avoid extra renders, the component will just render again if the selected flag change
+     */
+    return prevProps.selected === nextProps.selected;
   },
 );

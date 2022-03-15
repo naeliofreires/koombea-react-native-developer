@@ -1,5 +1,4 @@
 import React, {useCallback, useEffect, useRef} from 'react';
-import {Platform} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
@@ -18,6 +17,7 @@ import * as S from './styles';
 
 export const Home = () => {
   const palette = useTheme().palette;
+  const platform = useTheme().platform;
   const global = useResource('global');
 
   const filterModalRef = useRef<ModalRefProps>(null);
@@ -46,22 +46,19 @@ export const Home = () => {
   return (
     <S.Container>
       <Header
-        title="Fighters"
+        title={'Fighters'}
         justifyContent={'space-between'}
         rightChild={
           <BaseButton onPress={onOpenFilter}>
             <MaterialIcon
               size={26}
               name={'filter-list'}
-              color={
-                Platform.OS === 'ios'
-                  ? palette.secondaryText
-                  : palette.primaryText
-              }
+              color={platform.ios ? palette.secondaryText : palette.primaryText}
             />
           </BaseButton>
         }
       />
+
       <UniverseList />
 
       <FightersList />
