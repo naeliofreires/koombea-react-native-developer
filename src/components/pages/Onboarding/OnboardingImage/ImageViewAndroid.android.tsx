@@ -20,7 +20,7 @@ export const ImageViewAndroid: React.FC<OnboardingImage> = React.memo(
               value={text}
               alignment={'center'}
               color={'primaryText'}
-              typography={'primaryFont'}
+              typography={'onboarding'}
             />
           </S.TextView>
         </S.ImageContainer>

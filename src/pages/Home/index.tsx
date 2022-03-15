@@ -4,15 +4,15 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import {useTheme} from '~/theme';
 import {Filter} from '~/pages/Filter';
-import {Modal} from '~/components/commons/Modal';
-import {Header} from '~/components/commons/Header';
-import {BaseButton} from '~/components/commons/BaseButton';
 import {Onboarding} from '~/pages/Onboarding';
+import {Modal} from '~/components/commons/Modal';
+import {useResource} from '~/redux/store/hooks';
+import {Header} from '~/components/commons/Header';
+import {WARNS} from '~/redux/store/slices/global/types';
 import {ModalRefProps} from '~/components/commons/Modal/types';
+import {BaseButton} from '~/components/commons/BaseButton';
 import {UniverseList} from '~/components/pages/Home/UniverseList';
 import {FightersList} from '~/components/pages/Home/FightersList';
-import {useResource} from '~/redux/store/hooks';
-import {WARNS} from '~/redux/store/slices/global/types';
 
 import * as S from './styles';
 

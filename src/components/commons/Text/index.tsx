@@ -26,17 +26,16 @@ export const Text: React.FC<TextProps> = React.memo(props => {
     [color, palette],
   );
 
-  const _styles = useMemo(
-    () => ({
+  const _styles = useMemo(() => {
+    return {
+      ...styles,
       ...fontFamily,
+      textAlign: alignment,
       fontSize: fontSize || fontFamily.fontSize,
       color: _color || color,
-      textAlign: alignment,
       textTransform: transform,
-      ...styles,
-    }),
-    [_color, alignment, color, fontFamily, fontSize, styles, transform],
-  );
+    };
+  }, [_color, alignment, color, fontFamily, fontSize, styles, transform]);
 
   return (
     <ReactNativeText style={{...(_styles as any)}} {...rest}>
