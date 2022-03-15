@@ -9,7 +9,7 @@ import * as S from './styles';
 import {UniverseType} from './types';
 
 export const Universe = React.memo(
-  ({name, objectID, description}: UniverseType) => {
+  ({name, objectID, description, first}: UniverseType) => {
     const dispatch = useDispatch();
     const {selectedUniverse} = useResource('universe');
 
@@ -19,7 +19,7 @@ export const Universe = React.memo(
           dispatch(UniverseActions.onSelect({name, objectID, description}));
         } else if (objectID === 0) {
           if (selectedUniverse?.objectID !== 0) {
-            dispatch(UniverseActions.onSelect({objectID: 0} as UniverseType));
+            dispatch(UniverseActions.onSelect({objectID} as UniverseType));
           }
         }
       } catch (e) {
@@ -29,9 +29,10 @@ export const Universe = React.memo(
 
     return (
       <S.Container
+        first={Boolean(first)}
         onPress={onSelectUniverseID}
         selected={selectedUniverse?.objectID === objectID}>
-        <Text value={name} color={'primaryText'} typography={'secondaryFont'} />
+        <Text value={name} color={'primaryText'} typography={'secondary'} />
       </S.Container>
     );
   },

@@ -43,7 +43,7 @@ export const UniverseList = React.memo(() => {
 
       {status === STATUS.SUCCESS && (
         <S.ScrollContainer>
-          <Universe objectID={0} name={'All'} description={'default'} />
+          <Universe first objectID={0} name={'All'} description={'default'} />
           {data.map(u => (
             <Universe key={u.objectID} {...u} />
           ))}

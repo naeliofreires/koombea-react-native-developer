@@ -18,7 +18,6 @@ import * as S from './styles';
 
 export const Home = () => {
   const palette = useTheme().palette;
-
   const global = useResource('global');
 
   const filterModalRef = useRef<ModalRefProps>(null);
