@@ -1,5 +1,5 @@
 import {TextProps as TextPropsRN} from 'react-native';
-import {Palette} from '~/@types/styled-components/native';
+import Theme from '~/@types/styled-components/native';
 import {FONTS} from '~/components/commons/Text/styles';
 
 export interface TextProps extends TextPropsRN {
@@ -12,7 +12,7 @@ export interface TextProps extends TextPropsRN {
    */
   typography: FONTS;
   fontSize?: number;
-  color: keyof Palette | string;
+  color: keyof Theme['palette'] | string;
   /**
    * use to align the text into the component
    *

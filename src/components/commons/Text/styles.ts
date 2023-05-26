@@ -1,28 +1,55 @@
 import {StyleSheet, TextStyle} from 'react-native';
 
 export type FONTS =
-  | 'primaryFont'
-  | 'secondaryFont'
+  | 'primary'
+  | 'secondary'
   | 'tertiaryFont'
   | 'quartenaryFont'
-  | 'descriptionFront';
+  | 'onboarding'
+  | 'description'
+  | 'cardTitle';
 
 export const TEXT_STYLES = StyleSheet.create({
-  primaryFont: {
-    fontSize: 20,
+  primary: {
+    fontSize: 34,
+    lineHeight: 41,
+    fontWeight: '700',
+    fontFamily: 'Roboto-Regular',
   },
-  secondaryFont: {
-    fontSize: 18,
+  secondary: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '400',
+    fontStyle: 'normal',
   },
   tertiaryFont: {
     fontSize: 16,
+    fontFamily: 'Roboto',
   },
   quartenaryFont: {
     fontSize: 14,
+    fontFamily: 'Roboto',
   },
-  descriptionFront: {
+  description: {
     fontSize: 14,
     lineHeight: 27,
     fontWeight: '400',
+    fontFamily: 'Roboto-Regular',
+  },
+  onboarding: {
+    fontSize: 25,
+    lineHeight: 29.3,
+    fontWeight: '400',
+    fontStyle: 'normal',
+    textAlign: 'center',
+    fontFamily: 'Roboto',
+  },
+  cardTitle: {
+    fontFamily: 'Roboto-Bold',
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '700',
+    fontStyle: 'normal',
   },
 } as StyleSheet.NamedStyles<Record<FONTS, TextStyle>>);

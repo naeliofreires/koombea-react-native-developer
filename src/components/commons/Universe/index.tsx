@@ -1,35 +1,41 @@
 import React, {useCallback} from 'react';
-import {observer} from 'mobx-react-lite';
+import {useDispatch} from 'react-redux';
 
-import {useStore} from '~/store/hooks';
 import {Text} from '~/components/commons/Text';
-import {UniverseStoreProps} from '~/store/Universe/types';
+import {UniverseActions} from '~/redux/store/slices/universe';
 
 import * as S from './styles';
-import {UniverseProps} from './types';
+import {UniverseProps, UniverseType} from './types';
 
-export const Universe = observer(({name, objectID}: UniverseProps) => {
-  const store = useStore<UniverseStoreProps>('universe');
+export const Universe = React.memo(
+  ({name, objectID, description, first, selected}: UniverseProps) => {
+    const dispatch = useDispatch();
 
-  const onSelectUniverseID = useCallback(() => {
-    try {
-      if (objectID) {
-        store?.onSelectUniverseID(objectID);
-      } else if (objectID === 0) {
-        if (store.universeSelectedID !== 0) {
-          store?.onSelectUniverseID(0);
+    const onSelectUniverseID = useCallback(() => {
+      try {
+        dispatch(
+          UniverseActions.onSelect({
+            name,
+            objectID,
+            description,
+          }),
+        );
+
+        if (objectID === 0) {
+          dispatch(UniverseActions.onSelect({objectID} as UniverseType));
         }
+      } catch (e) {
+        throw new Error(`An error at Universe.onSelectUniverseID: ${e}`);
       }
-    } catch (e) {
-      throw new Error(`An error at Universe.onSelectUniverseID: ${e}`);
-    }
-  }, [objectID, store.universeSelectedID]); // eslint-disable-line
+    }, [description, dispatch, name, objectID]);
 
-  return (
-    <S.Container
-      onPress={onSelectUniverseID}
-      selected={Boolean(store.universeSelectedID === objectID)}>
-      <Text value={name} color={'primaryText'} typography={'secondaryFont'} />
-    </S.Container>
-  );
-});
+    return (
+      <S.Container
+        first={Boolean(first)}
+        selected={selected}
+        onPress={onSelectUniverseID}>
+        <Text value={name} color={'primaryText'} typography={'secondary'} />
+      </S.Container>
+    );
+  },
+);

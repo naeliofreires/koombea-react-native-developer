@@ -35,6 +35,7 @@ export const ChildView = styled.View`
 `;
 
 export const ContainerIOS = styled(Container)`
+  padding-left: 20px;
   flex-direction: column;
   align-items: flex-start;
 

@@ -4,11 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 import {PAGES} from '~/routes/types';
 import {Text} from '~/components/commons/Text';
 
-import {FighterProps} from './types';
+import {FighterType} from './types';
 import * as S from './styles';
 
 export const Fighter = React.memo(
-  ({name, price, imageURL, rate, downloads, universe}: FighterProps) => {
+  ({name, price, imageURL, rate, downloads, universe}: FighterType) => {
     const navigation = useNavigation();
 
     const onNavigation = useCallback(() => {
@@ -24,13 +24,13 @@ export const Fighter = React.memo(
             <Text
               value={name}
               color={'secondaryText'}
-              typography={'secondaryFont'}
+              typography={'cardTitle'}
             />
             <Text
               numberOfLines={1}
               value={universe}
               color={'tertiaryText'}
-              typography={'tertiaryFont'}
+              typography={'secondary'}
             />
           </S.View>
 
@@ -46,13 +46,13 @@ export const Fighter = React.memo(
               alignment={'right'}
               color={'tertiaryText'}
               value={`Rate: ${rate}`}
-              typography={'tertiaryFont'}
+              typography={'secondary'}
             />
 
             <Text
               alignment={'right'}
               color={'tertiaryText'}
-              typography={'tertiaryFont'}
+              typography={'secondary'}
               value={`Downloads: ${downloads}`}
             />
           </S.View>

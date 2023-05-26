@@ -1,74 +1,64 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
-import {observer} from 'mobx-react-lite';
-import FastImage from 'react-native-fast-image';
-import {FlatList, RefreshControl} from 'react-native';
+import React, {useCallback, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {Alert, FlatList, RefreshControl} from 'react-native';
 
 import {useTheme} from '~/theme';
-import {STATE} from '~/store/types';
-import {useStore} from '~/store/hooks';
+import {STATUS} from '~/redux/store/types';
 import {Text} from '~/components/commons/Text';
+import {useResource} from '~/redux/store/hooks';
 import {Fighter} from '~/components/commons/Fighter';
-import {FighterStoreProps} from '~/store/Fighter/types';
 import {BaseButton} from '~/components/commons/BaseButton';
-import {UniverseStoreProps} from '~/store/Universe/types';
-import {FighterProps} from '~/components/commons/Fighter/types';
+import {FighterType} from '~/components/commons/Fighter/types';
+import {FighterService} from '~/redux/store/slices/fighter/services';
 import NoSearchResult from '~/assets/icons/feedback/no_search_result.png';
 
 import * as S from './style';
 
-export const FightersList = observer(() => {
+export const FightersList = React.memo(() => {
   const palette = useTheme().palette;
-  const fightersStore = useStore('fighter') as FighterStoreProps;
-  const universesStore = useStore('universe') as UniverseStoreProps;
+
+  const dispatch = useDispatch();
+  const {options} = useResource('filter');
+  const {data, status} = useResource('fighter');
+  const {selectedUniverse: universe} = useResource('universe');
 
   const handleFilterFightersList = useCallback(() => {
-    const universeID = universesStore?.universeSelectedID;
-    const universe = universesStore?.getUniverseByID(universeID);
-    fightersStore?.loadByUniverse(universe?.name);
-  }, [fightersStore, universesStore?.universeSelectedID]); // eslint-disable-line
+    try {
+      if (universe) {
+        dispatch(FighterService.getByUniverse({universe, options}));
+      }
+    } catch (e) {
+      Alert.alert('Universe App', e as string);
+    }
+  }, [universe, dispatch, options]);
 
   useEffect(() => {
-    (async () => {
-      await fightersStore?.loadAll();
-    })();
-  }, [fightersStore]);
+    dispatch(FighterService.getAll());
+  }, [dispatch]);
 
-  useEffect(() => {
-    handleFilterFightersList();
-  }, [
-    handleFilterFightersList,
-    universesStore?.universeSelectedID,
-    fightersStore?.options,
-  ]);
-
-  const extractorID = useCallback(
-    (item: FighterProps, idx: number) => String(item.objectID + idx),
-    [],
+  useEffect(
+    () => handleFilterFightersList(),
+    [handleFilterFightersList, universe, options],
   );
 
   const renderItem = useCallback(({item}) => <Fighter {...item} />, []);
 
-  const onRefresh = useCallback(async () => {
-    await fightersStore?.loadAll();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const data = useMemo(
-    () => fightersStore?.fighters || [],
-    [fightersStore?.fighters],
-  );
+  const reload = useCallback(() => {
+    dispatch(FighterService.getAll());
+  }, [dispatch]);
 
   return (
     <S.Container>
-      {fightersStore?.state === STATE.ERROR && (
+      {status === STATUS.ERROR && (
         <S.FeedbackView>
           <Entypo name={'emoji-sad'} color={palette.tertiaryColor} size={60} />
           <BaseButton onPress={handleFilterFightersList}>
             <Text
               alignment={'center'}
               value={'Try again'}
-              typography={'primaryFont'}
+              typography={'primary'}
               color={palette.tertiaryColor}>
               <>
                 <S.GhostBox />
@@ -83,28 +73,23 @@ export const FightersList = observer(() => {
         </S.FeedbackView>
       )}
 
-      {fightersStore?.state === STATE.SUCCESS && data?.length === 0 && (
-        <S.FeedbackView>
-          <FastImage
-            style={{width: 200, height: 200}}
-            source={NoSearchResult}
-            resizeMode={FastImage.resizeMode.contain}
-          />
-        </S.FeedbackView>
-      )}
+      {status === STATUS.SUCCESS && data?.length === 0 && <NoSearchResult />}
 
-      <FlatList<FighterProps>
+      <FlatList<FighterType>
         data={data}
         removeClippedSubviews
         style={S.Styles.list}
         initialScrollIndex={0}
         initialNumToRender={5}
         renderItem={renderItem}
-        keyExtractor={extractorID}
+        keyExtractor={useCallback(
+          item => String(item.objectID + item.name),
+          [],
+        )}
         refreshControl={
           <RefreshControl
-            onRefresh={onRefresh}
-            refreshing={Boolean(fightersStore?.state === STATE.PENDING)}
+            onRefresh={reload}
+            refreshing={Boolean(status === STATUS.PENDING)}
           />
         }
       />

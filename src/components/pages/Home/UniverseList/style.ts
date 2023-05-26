@@ -1,4 +1,4 @@
-import {styled} from '~/theme';
+import {css, styled} from '~/theme';
 
 export const ScrollContainer = styled.ScrollView.attrs({
   horizontal: true,
@@ -6,7 +6,15 @@ export const ScrollContainer = styled.ScrollView.attrs({
 })`
   width: 100%;
   max-height: 70px;
-  padding: ${p => p.theme.units.base}px 0;
+  padding-top: 20px;
+  padding-bottom: 4px;
+
+  ${({theme}) =>
+    theme.platform.ios &&
+    css`
+      padding-top: 17px;
+      padding-bottom: 0;
+    `};
 `;
 
 export const FeedbackErrorBox = styled.View`

@@ -1,33 +1,32 @@
 import React, {useCallback, useEffect} from 'react';
-import {observer} from 'mobx-react-lite';
+import {useDispatch} from 'react-redux';
 
-import {useStore} from '~/store/hooks';
+import {STATUS} from '~/redux/store/types';
 import {Text} from '~/components/commons/Text';
+import {useResource} from '~/redux/store/hooks';
 import {Universe} from '~/components/commons/Universe';
-import {UniverseStoreProps} from '~/store/Universe/types';
 import {BaseButton} from '~/components/commons/BaseButton';
+import {UniverseService} from '~/redux/store/slices/universe/services';
 
 import * as S from './style';
-import {STATE} from '~/store/types';
 
-export const UniverseList = observer(() => {
-  const store = useStore('universe') as UniverseStoreProps;
+export const UniverseList = React.memo(() => {
+  const dispatch = useDispatch();
+  const {data, status, selectedUniverse} = useResource('universe');
+
+  const load = useCallback(() => {
+    dispatch(UniverseService.getAll());
+  }, [dispatch]);
 
   useEffect(() => {
-    (async () => {
-      await store?.getAllUniverses();
-    })();
-  }, [store]);
-
-  const onTryToLoad = useCallback(async () => {
-    await store?.getAllUniverses();
-  }, [store]);
+    load();
+  }, [load]);
 
   return (
     <>
-      {store?.state === STATE.ERROR && (
+      {status === STATUS.ERROR && (
         <S.FeedbackErrorBox>
-          <BaseButton onPress={onTryToLoad}>
+          <BaseButton onPress={load}>
             <Text
               color={'tertiaryText'}
               typography={'tertiaryFont'}
@@ -42,12 +41,21 @@ export const UniverseList = observer(() => {
         </S.FeedbackErrorBox>
       )}
 
-      {store?.state === STATE.SUCCESS && (
+      {status === STATUS.SUCCESS && (
         <S.ScrollContainer>
-          <Universe objectID={0} name={'All'} description={'default'} />
-
-          {store?.universes?.map(universe => (
-            <Universe key={universe.objectID} {...universe} />
+          <Universe
+            first
+            objectID={0}
+            name={'All'}
+            description={'default'}
+            selected={selectedUniverse?.objectID === 0}
+          />
+          {data.map(u => (
+            <Universe
+              {...u}
+              key={u.objectID}
+              selected={selectedUniverse?.objectID === u.objectID}
+            />
           ))}
         </S.ScrollContainer>
       )}

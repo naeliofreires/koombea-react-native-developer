@@ -1,5 +1,6 @@
+import {Platform} from 'react-native';
 import IDefaultTheme from '~/@types/styled-components/native';
-
+Platform.OS === 'ios';
 export default {
   palette: {
     primaryColor: '#007AFF',
@@ -14,8 +15,13 @@ export default {
   },
   units: {
     none: 0,
-    half: 6.5,
-    base: 13,
-    double: 26,
+    half: 8,
+    base: 16,
+    double: 32,
+  },
+
+  platform: {
+    ios: Platform.OS === 'ios',
+    android: Platform.OS === 'android',
   },
 } as IDefaultTheme;

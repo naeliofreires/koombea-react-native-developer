@@ -5,42 +5,42 @@ import {useTheme} from '~/theme';
 import {TextProps} from '~/components/commons/Text/types';
 import {TEXT_STYLES} from '~/components/commons/Text/styles';
 
-export const Text: React.FC<TextProps> = ({
-  typography,
-  color,
-  value,
-  transform,
-  fontSize,
-  styles,
-  alignment = 'auto',
-  children,
-  ...rest
-}) => {
-  const palette = useTheme().palette;
+export const Text: React.FC<TextProps> = React.memo(props => {
+  const {
+    color,
+    value,
+    styles,
+    fontSize,
+    children,
+    transform,
+    typography,
+    alignment = 'auto',
+    ...rest
+  } = props;
 
-  const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primaryFont;
+  const palette = useTheme().palette;
+  const fontFamily = TEXT_STYLES[typography] || TEXT_STYLES.primary;
 
   const _color = useMemo(
-    () => (palette as Record<string, string>)[color],
+    () => (palette as Record<string, string>)[color as string],
     [color, palette],
   );
 
-  const _styles = useMemo(
-    () => ({
+  const _styles = useMemo(() => {
+    return {
+      ...styles,
       ...fontFamily,
+      textAlign: alignment,
       fontSize: fontSize || fontFamily.fontSize,
       color: _color || color,
-      textAlign: alignment,
       textTransform: transform,
-      ...styles,
-    }),
-    [_color, alignment, color, fontFamily, fontSize, styles, transform],
-  );
+    };
+  }, [_color, alignment, color, fontFamily, fontSize, styles, transform]);
 
   return (
-    <ReactNativeText style={{..._styles}} {...rest}>
+    <ReactNativeText style={{...(_styles as any)}} {...rest}>
       {value}
       {React.isValidElement(children) && children}
     </ReactNativeText>
   );
-};
+});

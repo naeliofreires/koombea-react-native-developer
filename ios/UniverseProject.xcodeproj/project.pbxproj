@@ -11,10 +11,22 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		8B60C6F0E342F170C7417EC7 /* libPods-UniverseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10607B6A46E307C5DB95A776 /* libPods-UniverseProject.a */; };
-		92D3D9B16D593B5534822850 /* libPods-UniverseProject-UniverseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6437A82DA12B311038A0B0AC /* libPods-UniverseProject-UniverseProjectTests.a */; };
+		AF87163A27E01E17000B2175 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD21A156241943079B79B98E /* Roboto-Black.ttf */; };
+		AF87163B27E01E17000B2175 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB1D70AF8AEE4EFDA98F1D9E /* Roboto-BlackItalic.ttf */; };
+		AF87163C27E01E17000B2175 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EDEB72C3BC247DDABA2C296 /* Roboto-Bold.ttf */; };
+		AF87163D27E01E17000B2175 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDF9C43ED19B415A8450FF3C /* Roboto-BoldItalic.ttf */; };
+		AF87163E27E01E17000B2175 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB04149D7DB141BA86714D1F /* Roboto-Italic.ttf */; };
+		AF87163F27E01E17000B2175 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA2F41E729D14A579A194EAB /* Roboto-Light.ttf */; };
+		AF87164027E01E17000B2175 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36E5D08EDF1E443D90BADB40 /* Roboto-LightItalic.ttf */; };
+		AF87164127E01E17000B2175 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3FFD8753D045E99AFF697F /* Roboto-Medium.ttf */; };
+		AF87164227E01E17000B2175 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7F9AF4991D42D29DCE1548 /* Roboto-MediumItalic.ttf */; };
+		AF87164327E01E17000B2175 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B02A3965B34E438A9B0458AF /* Roboto-Regular.ttf */; };
+		AF87164427E01E17000B2175 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3A345274E84BAE92AB7143 /* Roboto-Thin.ttf */; };
+		AF87164527E01E17000B2175 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B3B5BB7A9264C329A409BEA /* Roboto-ThinItalic.ttf */; };
 		AF9398AD27A9B1B300065DAB /* libreact-native-splash-screen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9398AC27A9B1B300065DAB /* libreact-native-splash-screen.a */; };
 		AF9398AF27A9B51100065DAB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF9398AE27A9B51100065DAB /* Launch Screen.storyboard */; };
+		DDCE6CA190AC25D2FDCA773D /* libPods-UniverseProject-UniverseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A33DC01E42E951480B81EBE /* libPods-UniverseProject-UniverseProjectTests.a */; };
+		F93E720D11091C56FFFC84FE /* libPods-UniverseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D9AE53F840068E60EA7560 /* libPods-UniverseProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +43,49 @@
 		00E356EE1AD99517003FC87E /* UniverseProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniverseProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* UniverseProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniverseProjectTests.m; sourceTree = "<group>"; };
-		10607B6A46E307C5DB95A776 /* libPods-UniverseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniverseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0587088FD2AE4CFA96F15C16 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		07022D7C343E45CB9247926C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		07255C1AABF746D1B8BB52A6 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		0B5524CE634BFE5ECCE49908 /* Pods-UniverseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject.release.xcconfig"; path = "Target Support Files/Pods-UniverseProject/Pods-UniverseProject.release.xcconfig"; sourceTree = "<group>"; };
+		0D3FFD8753D045E99AFF697F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		0D9A61B8957B4023831D8355 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* UniverseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniverseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = UniverseProject/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = UniverseProject/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = UniverseProject/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UniverseProject/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = UniverseProject/main.m; sourceTree = "<group>"; };
-		15686777792540F3CC133578 /* Pods-UniverseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject.release.xcconfig"; path = "Target Support Files/Pods-UniverseProject/Pods-UniverseProject.release.xcconfig"; sourceTree = "<group>"; };
-		27B5B43EDE27A33414EF33DE /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject-UniverseProjectTests.release.xcconfig"; path = "Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		6437A82DA12B311038A0B0AC /* libPods-UniverseProject-UniverseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniverseProject-UniverseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8835C7A439FA69713F56C416 /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject-UniverseProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		17DBECD6C30C49E5834CF35C /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		1A4F4FDD8BCC41188BD15069 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		1A86F7475A6F442CA5FE8202 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		1EDEB72C3BC247DDABA2C296 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		254D827245BFA2BAB61BAAF0 /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject-UniverseProjectTests.release.xcconfig"; path = "Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		2C719FC81E504B6CA787261F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		30633631FBBD40EE94830DF2 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		36E5D08EDF1E443D90BADB40 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		3EBB7A68FA0C425F83BCE161 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		7440F267109A416577CD31BF /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject-UniverseProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B7848D76AF44DD78B431B9A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		85CE59DCC1C84443B4601665 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		8B3B5BB7A9264C329A409BEA /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		9A33DC01E42E951480B81EBE /* libPods-UniverseProject-UniverseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniverseProject-UniverseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85DEB3F162840448F4E2DFA /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		A9D9AE53F840068E60EA7560 /* libPods-UniverseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniverseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9F1E95EAB464FC5AFD3B49C /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		AB04149D7DB141BA86714D1F /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		AD21A156241943079B79B98E /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		AF9398AC27A9B1B300065DAB /* libreact-native-splash-screen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-splash-screen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9398AE27A9B51100065DAB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		B5E708E3EEF39839391C401F /* Pods-UniverseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject.debug.xcconfig"; path = "Target Support Files/Pods-UniverseProject/Pods-UniverseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		B02A3965B34E438A9B0458AF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		BB42478E54D34CA9AA85C898 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		BDF9C43ED19B415A8450FF3C /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CA3A345274E84BAE92AB7143 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		DB1D70AF8AEE4EFDA98F1D9E /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		DD7F9AF4991D42D29DCE1548 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		EA2F41E729D14A579A194EAB /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F22E9BE8EA888DF6A955B60A /* Pods-UniverseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniverseProject.debug.xcconfig"; path = "Target Support Files/Pods-UniverseProject/Pods-UniverseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		FF930BAC08FF4A6883000F90 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D3D9B16D593B5534822850 /* libPods-UniverseProject-UniverseProjectTests.a in Frameworks */,
+				DDCE6CA190AC25D2FDCA773D /* libPods-UniverseProject-UniverseProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF9398AD27A9B1B300065DAB /* libreact-native-splash-screen.a in Frameworks */,
-				8B60C6F0E342F170C7417EC7 /* libPods-UniverseProject.a in Frameworks */,
+				F93E720D11091C56FFFC84FE /* libPods-UniverseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +144,8 @@
 			children = (
 				AF9398AC27A9B1B300065DAB /* libreact-native-splash-screen.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				10607B6A46E307C5DB95A776 /* libPods-UniverseProject.a */,
-				6437A82DA12B311038A0B0AC /* libPods-UniverseProject-UniverseProjectTests.a */,
+				A9D9AE53F840068E60EA7560 /* libPods-UniverseProject.a */,
+				9A33DC01E42E951480B81EBE /* libPods-UniverseProject-UniverseProjectTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,10 +153,10 @@
 		51A3EF7FF2041125831BE72F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B5E708E3EEF39839391C401F /* Pods-UniverseProject.debug.xcconfig */,
-				15686777792540F3CC133578 /* Pods-UniverseProject.release.xcconfig */,
-				8835C7A439FA69713F56C416 /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */,
-				27B5B43EDE27A33414EF33DE /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */,
+				F22E9BE8EA888DF6A955B60A /* Pods-UniverseProject.debug.xcconfig */,
+				0B5524CE634BFE5ECCE49908 /* Pods-UniverseProject.release.xcconfig */,
+				7440F267109A416577CD31BF /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */,
+				254D827245BFA2BAB61BAAF0 /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -137,6 +177,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				51A3EF7FF2041125831BE72F /* Pods */,
+				DC88D7E564E645329D03A84F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -152,6 +193,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DC88D7E564E645329D03A84F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A61B8957B4023831D8355 /* AntDesign.ttf */,
+				1A86F7475A6F442CA5FE8202 /* Entypo.ttf */,
+				1A4F4FDD8BCC41188BD15069 /* EvilIcons.ttf */,
+				85CE59DCC1C84443B4601665 /* Feather.ttf */,
+				0587088FD2AE4CFA96F15C16 /* FontAwesome.ttf */,
+				FF930BAC08FF4A6883000F90 /* FontAwesome5_Brands.ttf */,
+				7B7848D76AF44DD78B431B9A /* FontAwesome5_Regular.ttf */,
+				17DBECD6C30C49E5834CF35C /* FontAwesome5_Solid.ttf */,
+				07255C1AABF746D1B8BB52A6 /* Fontisto.ttf */,
+				07022D7C343E45CB9247926C /* Foundation.ttf */,
+				2C719FC81E504B6CA787261F /* Ionicons.ttf */,
+				A85DEB3F162840448F4E2DFA /* MaterialCommunityIcons.ttf */,
+				BB42478E54D34CA9AA85C898 /* MaterialIcons.ttf */,
+				3EBB7A68FA0C425F83BCE161 /* Octicons.ttf */,
+				30633631FBBD40EE94830DF2 /* SimpleLineIcons.ttf */,
+				A9F1E95EAB464FC5AFD3B49C /* Zocial.ttf */,
+				AD21A156241943079B79B98E /* Roboto-Black.ttf */,
+				DB1D70AF8AEE4EFDA98F1D9E /* Roboto-BlackItalic.ttf */,
+				1EDEB72C3BC247DDABA2C296 /* Roboto-Bold.ttf */,
+				BDF9C43ED19B415A8450FF3C /* Roboto-BoldItalic.ttf */,
+				AB04149D7DB141BA86714D1F /* Roboto-Italic.ttf */,
+				EA2F41E729D14A579A194EAB /* Roboto-Light.ttf */,
+				36E5D08EDF1E443D90BADB40 /* Roboto-LightItalic.ttf */,
+				0D3FFD8753D045E99AFF697F /* Roboto-Medium.ttf */,
+				DD7F9AF4991D42D29DCE1548 /* Roboto-MediumItalic.ttf */,
+				B02A3965B34E438A9B0458AF /* Roboto-Regular.ttf */,
+				CA3A345274E84BAE92AB7143 /* Roboto-Thin.ttf */,
+				8B3B5BB7A9264C329A409BEA /* Roboto-ThinItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,12 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "UniverseProjectTests" */;
 			buildPhases = (
-				3FA1DDE029011D0D52004EA0 /* [CP] Check Pods Manifest.lock */,
+				9D71A7A86E2E64BD835AE475 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				EFB1A3CB17AE023204B39B79 /* [CP] Embed Pods Frameworks */,
-				101B91CF6ADDFE49D95F54A2 /* [CP] Copy Pods Resources */,
+				8DEC309C30632AD99925921A /* [CP] Embed Pods Frameworks */,
+				6076B71E5BDFC3BD3512EDB1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,14 +256,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "UniverseProject" */;
 			buildPhases = (
-				C6883CAB2087CE006EFDACB8 /* [CP] Check Pods Manifest.lock */,
+				0EDA1ACA5682F62462C913B1 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6AFB44079CBF19168E07D32B /* [CP] Embed Pods Frameworks */,
-				4E249208B93A66D3A262842B /* [CP] Copy Pods Resources */,
+				2F7958D9F6198027E6F1B705 /* [CP] Embed Pods Frameworks */,
+				C93F2483CC2EE19C4B101001 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,7 +280,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -246,6 +322,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF87163A27E01E17000B2175 /* Roboto-Black.ttf in Resources */,
+				AF87163B27E01E17000B2175 /* Roboto-BlackItalic.ttf in Resources */,
+				AF87163C27E01E17000B2175 /* Roboto-Bold.ttf in Resources */,
+				AF87163D27E01E17000B2175 /* Roboto-BoldItalic.ttf in Resources */,
+				AF87163E27E01E17000B2175 /* Roboto-Italic.ttf in Resources */,
+				AF87163F27E01E17000B2175 /* Roboto-Light.ttf in Resources */,
+				AF87164027E01E17000B2175 /* Roboto-LightItalic.ttf in Resources */,
+				AF87164127E01E17000B2175 /* Roboto-Medium.ttf in Resources */,
+				AF87164227E01E17000B2175 /* Roboto-MediumItalic.ttf in Resources */,
+				AF87164327E01E17000B2175 /* Roboto-Regular.ttf in Resources */,
+				AF87164427E01E17000B2175 /* Roboto-Thin.ttf in Resources */,
+				AF87164527E01E17000B2175 /* Roboto-ThinItalic.ttf in Resources */,
 				AF9398AF27A9B51100065DAB /* Launch Screen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -268,80 +356,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		101B91CF6ADDFE49D95F54A2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FA1DDE029011D0D52004EA0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UniverseProject-UniverseProjectTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E249208B93A66D3A262842B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6AFB44079CBF19168E07D32B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C6883CAB2087CE006EFDACB8 /* [CP] Check Pods Manifest.lock */ = {
+		0EDA1ACA5682F62462C913B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,7 +378,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EFB1A3CB17AE023204B39B79 /* [CP] Embed Pods Frameworks */ = {
+		2F7958D9F6198027E6F1B705 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6076B71E5BDFC3BD3512EDB1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DEC309C30632AD99925921A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,6 +427,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject-UniverseProjectTests/Pods-UniverseProject-UniverseProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D71A7A86E2E64BD835AE475 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UniverseProject-UniverseProjectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C93F2483CC2EE19C4B101001 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniverseProject/Pods-UniverseProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -432,7 +520,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8835C7A439FA69713F56C416 /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */;
+			baseConfigurationReference = 7440F267109A416577CD31BF /* Pods-UniverseProject-UniverseProjectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,7 +548,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27B5B43EDE27A33414EF33DE /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */;
+			baseConfigurationReference = 254D827245BFA2BAB61BAAF0 /* Pods-UniverseProject-UniverseProjectTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,7 +573,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5E708E3EEF39839391C401F /* Pods-UniverseProject.debug.xcconfig */;
+			baseConfigurationReference = F22E9BE8EA888DF6A955B60A /* Pods-UniverseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -512,7 +600,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15686777792540F3CC133578 /* Pods-UniverseProject.release.xcconfig */;
+			baseConfigurationReference = 0B5524CE634BFE5ECCE49908 /* Pods-UniverseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;

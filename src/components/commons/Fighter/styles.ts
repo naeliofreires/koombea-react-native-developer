@@ -5,21 +5,22 @@ export const Container = styled.TouchableOpacity`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding: ${p => p.theme.units.base}px;
-
   border-bottom-width: 1px;
   border-bottom-color: ${p => p.theme.palette.tertiaryColor};
+  padding: ${p => p.theme.units.base}px 22px ${p => p.theme.units.base}px 13px;
 `;
 
 export const InformationView = styled.View`
-  flex-grow: 1;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-left: ${p => p.theme.units.base}px;
+
+  padding-left: 13px;
 `;
 
 export const View = styled.View`
+  height: 60px;
   flex-direction: column;
 `;
 

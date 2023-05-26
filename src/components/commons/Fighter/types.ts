@@ -1,4 +1,4 @@
-export type FighterProps = {
+export type FighterType = {
   objectID: string;
   name: string;
   universe: string;
